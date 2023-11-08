@@ -104,10 +104,10 @@ components:
     credentials:
       type: object
       properties:
-        pseudo:
-          type: string
+        userid:
+          type: int
         password:
           type: string
       example:
-        pseudo: johnsmith
+        userid: 5
         password: password123
