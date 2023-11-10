@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: Vinci Stock eXchange orders service
+  description: Microservice handling orders on the stock exchange market...
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:9000'
+    description: Development server
+paths:
+  /orders:
+    get:
+      summary:
+
+components:
+  schemas:
+    order:
+      type: object
+      properties:
+        id:
+          type: integer
+        accountId:
+          type: integer
+        type:
+          type: string
+          enum:
+            - LIMIT
+            - MARKET
+        side:
+          type: string
+          enum:
+            - BUYER
+            - SELLER
+        status:
+          type: string
+          enum:
+            - NEW
+            - EXECUTED
+            - PARTIALLY_EXECUTED
+  
