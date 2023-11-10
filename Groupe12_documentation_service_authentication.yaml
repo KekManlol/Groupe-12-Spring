@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: Groupe 12 authentication service
-  description: Microservice handling authentication and credentials database in Groupe 12 project
+  title: Vinci Stock eXchange authentication service
+  description: Microservice handling authentication and credentials database in Vinci Stock eXchange
   version: 1.0.0
 servers:
-  - url: 'http://localhost:9004'
+  - url: 'http://localhost:9006'
     description: Development server
 paths:
 
@@ -104,10 +104,10 @@ components:
     credentials:
       type: object
       properties:
-        userid:
+        userId:
           type: int
         password:
           type: string
       example:
-        userid: 5
+        userId: 5
         password: password123
