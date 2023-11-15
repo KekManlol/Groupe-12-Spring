@@ -6,20 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Eureka" />
         <module name="Orders" />
+        <module name="Eureka" />
         <module name="Accounts" />
+        <module name="Authentication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Accounts" target="17" />
-      <module name="Eureka" target="17" />
-      <module name="Orders" target="17" />
+      <module name="Titles" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Accounts" options="-parameters" />
+      <module name="Authentication" options="-parameters" />
       <module name="Eureka" options="-parameters" />
       <module name="Orders" options="-parameters" />
     </option>
