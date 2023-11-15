@@ -18,11 +18,11 @@ public class PriceService {
     return repository.findByTicker(ticker).orElse(null);
   }
 
-  public boolean updateOne(Price price) {
-    Optional<Price> oldPrice = repository.findByTicker(price.getTicker());
-    if(oldPrice.isEmpty()) return false;
-    repository.delete(oldPrice.get());
-    repository.save(price);
+  public boolean updateOne(Price newPrice) {
+    Optional<Price> price = repository.findByTicker(newPrice.getTicker());
+    if(price.isEmpty()) return false;
+    price.get().setPrice(newPrice.getPrice());
+    repository.save(price.get());
     return true;
   }
 }
