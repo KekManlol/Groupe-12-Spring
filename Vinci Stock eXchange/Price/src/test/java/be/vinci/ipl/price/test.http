@@ -6,4 +6,4 @@ GET http://localhost:9004/price/ABCD
 PATCH http://localhost:9004/price/ABCD
 Content-Type: text/plain
 
-12
+14.4
