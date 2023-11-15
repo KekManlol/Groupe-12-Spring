@@ -1,0 +1,1 @@
+INSERT INTO prices(ticker, price) VALUES ('ABCD', 10.32);
