@@ -6,6 +6,8 @@ info:
 
     **Note** Dans ce service, on utilisera les termes 'investisseur' et 'utilisateur' de façon totalement interchangeable.
   version: 1.0.0
+servers:
+  - url: 'https://localhost:9003'
 paths:
   /authentication/connect:
     post:
