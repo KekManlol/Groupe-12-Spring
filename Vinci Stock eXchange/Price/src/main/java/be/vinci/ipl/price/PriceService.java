@@ -2,6 +2,7 @@ package be.vinci.ipl.price;
 
 import be.vinci.ipl.price.models.Price;
 import be.vinci.ipl.price.repositories.PriceRepository;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +19,9 @@ public class PriceService {
   }
 
   public boolean updateOne(Price price) {
-    if (!repository.existsByTicker(price.getTicker())) return false;
+    Optional<Price> oldPrice = repository.findByTicker(price.getTicker());
+    if(oldPrice.isEmpty()) return false;
+    repository.delete(oldPrice.get());
     repository.save(price);
     return true;
   }
