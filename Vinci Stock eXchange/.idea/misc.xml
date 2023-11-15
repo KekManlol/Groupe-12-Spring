@@ -4,7 +4,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/Accounts/pom.xml" />
         <option value="$PROJECT_DIR$/Orders/pom.xml" />
       </list>
     </option>

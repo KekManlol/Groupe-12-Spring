@@ -17,17 +17,39 @@ public class OrdersController {
         this.ordersService = ordersService;
     }
 
-    @PostMapping("/orders/create/{accountId}")
-    public ResponseEntity<Order> createOne(@PathVariable int accountId,
-                                        @RequestBody Order order) {
-        if (!Objects.equals(accountId, order.getAccountId())) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+    @PostMapping("/order")
+    public ResponseEntity<Order> placeOrder(@RequestBody Order order) {
+        if (order.getGuid() != null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         boolean created = ordersService.createOne(order);
-        if (!created) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        else return new ResponseEntity<>(order, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PatchMapping("/orders/status/update/{id}/{status}")
-    public ResponseEntity<Void> updateStatus(@PathVariable int id, @PathVariable String status)
+    @GetMapping("/order/{guid}")
+    public ResponseEntity<Order> getOrder(@PathVariable String guid) {
+        Order order = ordersService.getOne(guid);
+        if (order == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(order, HttpStatus.OK);
+    }
+
+
+
+
+
+//    @PostMapping("/orders/create/{accountId}")
+//    public ResponseEntity<Order> createOne(@PathVariable int accountId,
+//                                        @RequestBody Order order) {
+//        if (!Objects.equals(accountId, order.getAccountId())) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//
+//        boolean created = ordersService.createOne(order);
+//        if (!created) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        else return new ResponseEntity<>(order, HttpStatus.CREATED);
+//    }
+//
+//    @PatchMapping("/orders/status/update/{id}/{status}")
+//    public ResponseEntity<Void> updateStatus(@PathVariable int id, @PathVariable String status)
 
 }

@@ -14,20 +14,31 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity(name = "orders")
 public class Order {
+    
+    public enum Side {
+        BUY, SELL;
+    }
+
+    public enum Type {
+        MARKET, LIMIT;
+    }
+    
     @Id
-    private int id;
+    private String guid;
+    
+    private String owner;
 
-    @Column(name = "account_id", nullable = false)
-    private int accountId;
+    private String timestamp;
 
-    private enum type {
-        LIMIT,MARKET;
-    }
-    private enum side {
-        BUYER,SELLER;
-    }
+    @Column(nullable = false)
+    private String ticker;
+    @Column(nullable = false)
+    private int quantity;
+    @Column(nullable = false)
+    private Side side;
+    @Column(nullable = false)
+    private Type type;
 
-    private enum status {
-        NEW,EXECUTED,PARTIALLY_EXECUTED;
-    }
+    private double limit;
+    private int filled;
 }
