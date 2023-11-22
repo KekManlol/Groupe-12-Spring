@@ -56,22 +56,4 @@ public class OrdersController {
         Iterable<Order> orders = ordersService.getOpenOrders(ticker, side);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
-
-
-
-
-
-//    @PostMapping("/orders/create/{accountId}")
-//    public ResponseEntity<Order> createOne(@PathVariable int accountId,
-//                                        @RequestBody Order order) {
-//        if (!Objects.equals(accountId, order.getAccountId())) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//
-//        boolean created = ordersService.createOne(order);
-//        if (!created) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        else return new ResponseEntity<>(order, HttpStatus.CREATED);
-//    }
-//
-//    @PatchMapping("/orders/status/update/{id}/{status}")
-//    public ResponseEntity<Void> updateStatus(@PathVariable int id, @PathVariable String status)
-
 }
