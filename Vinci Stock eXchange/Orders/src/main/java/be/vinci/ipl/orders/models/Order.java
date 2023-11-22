@@ -15,14 +15,6 @@ import lombok.Setter;
 @Entity(name = "orders")
 public class Order {
     
-    public enum Side {
-        BUY, SELL;
-    }
-
-    public enum Type {
-        MARKET, LIMIT;
-    }
-    
     @Id
     private String guid;
     
@@ -35,9 +27,9 @@ public class Order {
     @Column(nullable = false)
     private int quantity;
     @Column(nullable = false)
-    private Side side;
+    private OrderSide side;
     @Column(nullable = false)
-    private Type type;
+    private OrderType type;
 
     private double limit;
     private int filled;

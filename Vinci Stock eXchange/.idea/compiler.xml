@@ -6,17 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Orders" />
         <module name="execution" />
+        <module name="Orders" />
         <module name="Price" />
         <module name="Authentication" />
         <module name="Investor" />
-        <module name="Eureka" />
         <module name="Accounts" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Accounts" target="17" />
+      <module name="Eureka" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

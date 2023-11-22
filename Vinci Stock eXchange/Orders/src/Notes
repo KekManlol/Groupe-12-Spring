@@ -1,0 +1,4 @@
+@JsonFormat( shape = shape.STRING)
+
+
+@Enumrate(
