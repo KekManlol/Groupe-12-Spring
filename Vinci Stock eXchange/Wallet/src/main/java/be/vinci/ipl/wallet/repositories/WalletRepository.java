@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WalletRepository extends CrudRepository<Wallet, Long> {
-  List<Position> getByUsername(String username);
+  List<Wallet> findByUsername(String username);
 
 }
