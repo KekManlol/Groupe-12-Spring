@@ -1,0 +1,35 @@
+### CREATE ONE
+POST {{authentication_url}}/test
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "blablabla"
+}
+
+### CONNECT ONE
+POST {{authentication_url}}/connect
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "blablabla"
+}
+
+### VERIFY
+POST {{authentication_url}}/verify
+Content-Type: text/plain
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdCJ9.ZnvsrW07eomBqBgqqThoYO6jizwJhV-t0f-aHcKQpHQWTOhdpC7F9J2C0woRFl7Ue1b2U7r80NojqCss5SOygg
+
+### DELETE ONE
+DELETE {{authentication_url}}/test
+
+### UPDATE ONE
+PUT {{authentication_url}}/test
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "password"
+}

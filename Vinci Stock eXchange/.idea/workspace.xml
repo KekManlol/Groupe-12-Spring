@@ -10,14 +10,26 @@
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Private Environment File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="file://$PROJECT_DIR$/Authentication/authentication.http" environment="dev" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,6 +44,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -46,6 +62,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "rest.client.default.execution.environment": "dev",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,10 +78,26 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaApplication">
+  <component name="RunManager" selected="Spring Boot.AuthenticationApplication">
+    <configuration name="authentication | CONNECT ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="2" requestIdentifier="CONNECT ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | CREATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" requestIdentifier="CREATE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | DELETE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="DELETE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | UPDATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="5" requestIdentifier="UPDATE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | VERIFY" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="VERIFY" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Authentication" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.authentication.AuthenticationApplication" />
+      <option name="VM_PARAMETERS" value="-Dbe.vinci.ipl.authentification.secret=Groupe12" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +158,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.authentication | VERIFY" />
+        <item itemvalue="HTTP Request.authentication | CONNECT ONE" />
+        <item itemvalue="HTTP Request.authentication | UPDATE ONE" />
+        <item itemvalue="HTTP Request.authentication | CREATE ONE" />
+        <item itemvalue="HTTP Request.authentication | DELETE ONE" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -137,7 +179,7 @@
       <workItem from="1700653153551" duration="190000" />
       <workItem from="1701257124950" duration="1201000" />
       <workItem from="1701261106668" duration="81000" />
-      <workItem from="1701261199494" duration="4707000" />
+      <workItem from="1701261199494" duration="7130000" />
     </task>
     <servers />
   </component>
