@@ -23,18 +23,35 @@ public class ExecutionService {
     this.orderProxy = orderProxy;
   }
 
-  public void updateCashWallet(String username, Position position){
+
+  /**
+   * @param username Username of the user.
+   * @param position The position to add to the user's wallet.
+   *
+   */
+  public void updateWallet(String username, Position position){
     walletProxy.updateOne(username, position);
   }
 
+  /**
+   * @param guid the order's guid.
+   * @return an Order.
+   */
   public Order getOrder(String guid){
     return orderProxy.getOne(guid);
   }
 
+  /**
+   * @param newOrder the new order to update.
+   */
   public void updateOrder(Order newOrder){
     orderProxy.updateOne(newOrder.getGuid(), newOrder);
   }
 
+  /**
+   * @param ticker the ticker's identifier.
+   * @param newPrice the ticker's new price.
+   */
   public void updatePrice(String ticker, int newPrice){
 
   }

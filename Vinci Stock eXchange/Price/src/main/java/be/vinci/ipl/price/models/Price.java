@@ -26,4 +26,8 @@ public class Price {
     this.ticker = ticker;
     this.price = price;
   }
+
+  public boolean invalid(){
+    return price < 0;
+  }
 }

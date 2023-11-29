@@ -14,10 +14,18 @@ public class PriceService {
     this.repository = repository;
   }
 
+  /**
+   * @param ticker the ticker's identifier.
+   * @return the ticker or null if not found.
+   */
   public Price readOne(String ticker) {
     return repository.findByTicker(ticker).orElse(null);
   }
 
+  /**
+   * @param newPrice the new price.
+   * @return true if the price was updated, false if not.
+   */
   public boolean updateOne(Price newPrice) {
     Optional<Price> price = repository.findByTicker(newPrice.getTicker());
     if(price.isEmpty()) return false;
