@@ -1,8 +1,7 @@
 package be.vinci.ipl.orders.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,14 +14,6 @@ import lombok.Setter;
 @Entity(name = "orders")
 public class Order {
     
-    public enum Side {
-        BUY, SELL;
-    }
-
-    public enum Type {
-        MARKET, LIMIT;
-    }
-    
     @Id
     private String guid;
     
@@ -32,12 +23,17 @@ public class Order {
 
     @Column(nullable = false)
     private String ticker;
+
     @Column(nullable = false)
     private int quantity;
+
     @Column(nullable = false)
-    private Side side;
+    @Enumerated(EnumType.STRING)
+    private OrderSide side;
+
     @Column(nullable = false)
-    private Type type;
+    @Enumerated(EnumType.STRING)
+    private OrderType type;
 
     private double limit;
     private int filled;

@@ -1,7 +1,10 @@
 package be.vinci.ipl.orders;
 
 import be.vinci.ipl.orders.models.Order;
+import be.vinci.ipl.orders.models.OrderSide;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.StreamSupport;
 
 @Service
 public class OrdersService {
@@ -10,13 +13,65 @@ public class OrdersService {
     public OrdersService(OrdersRepository repository) {
         this.repository = repository;
     }
-    public boolean createOne(Order order) {
+
+    /**
+     * Create an order in repository
+     *
+     * @param order Order to create
+     * @return Created order
+     */
+    public Order createOne(Order order) {
+        return repository.save(order);
+    }
+
+    /**
+     * Reads an order in repository
+     *
+     * @param guid Guid of the order
+     * @return The order or null if the order couldn't be found
+     */
+    public Order readOne(String guid) {
+        Order order = repository.findByGuid(guid).orElse(null);
+        return order;
+    }
+
+    /**
+     * Updates an order's share quantity in repository
+     *
+     * @param updatedOrder Order with updated quantity
+     * @return true if the order was updated or false if the order couldn't be found
+     */
+    public boolean updateSharesQuantity(Order updatedOrder) {
+        Order order = repository.findByGuid(updatedOrder.getGuid()).orElse(null);
+        if (order == null) return false;
+
+        order.setFilled(updatedOrder.getFilled());
         repository.save(order);
         return true;
     }
 
-    public Order getOne(String guid) {
-        Order order = repository.findByGuid(guid).orElse(null);
-        return order;
+    /**
+     * Reads all orders of a user
+     *
+     * @param username The username of the user
+     * @return The list of orders from this user
+     */
+    public Iterable<Order> readFromUser(String username) {
+        if (!repository.existsByOwner(username)) return null;
+        return repository.findByOwner(username);
+    }
+
+    /**
+     * Reads all open orders of derivative of a given side.
+     *
+     * @param ticker The financial instrument's identifier
+     * @param side Side of the transaction
+     * @return The list of open orders related to a financial instrument
+     */
+    public Iterable<Order> getOpenOrders(String ticker, OrderSide side) {
+        Iterable<Order> orders = repository.findByTickerAndSide(ticker, side);
+        return StreamSupport.stream(orders.spliterator(), false)
+                .filter(order -> order.getLimit() < order.getQuantity())
+                .toList();
     }
 }

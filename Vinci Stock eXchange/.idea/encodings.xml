@@ -4,8 +4,11 @@
     <file url="file://$PROJECT_DIR$/Accounts/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Authentication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Investor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Matching/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Orders/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Price/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Wallet/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/execution/src/main/java" charset="UTF-8" />
   </component>
 </project>
