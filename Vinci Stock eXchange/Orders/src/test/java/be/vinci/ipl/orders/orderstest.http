@@ -1,0 +1,9 @@
+### Create review
+POST http://localhost:9003/orders
+Content-Type: application/json
+
+{
+  "owner": "JxS5E-kZc2s",
+  "rating": 4,
+  "comment": "Meh…"
+}

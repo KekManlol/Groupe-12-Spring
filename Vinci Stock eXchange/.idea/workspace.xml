@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fc98020-beac-4bc0-864d-e89ee2c76c40" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Private Environment File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="file://$PROJECT_DIR$/Authentication/authentication.http" environment="dev" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2YWtR8cbnlsMask88tAsxXeRATQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/tqueg/Documents/Cours/Spring/Groupe-12-Spring/Vinci Stock eXchange/.idea",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "rest.client.default.execution.environment": "dev",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tqueg\Documents\Cours\Spring\Groupe-12-Spring\Vinci Stock eXchange\.idea" />
+      <recent name="C:\Users\keman\Desktop\3BIN\Spring\Groupe-12-Spring\Vinci Stock eXchange\Matching\src\main\java\be\vinci\ipl\matching\models" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AuthenticationApplication">
+    <configuration name="authentication | CONNECT ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="2" requestIdentifier="CONNECT ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | CREATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" requestIdentifier="CREATE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | DELETE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="DELETE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | UPDATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="5" requestIdentifier="UPDATE ONE" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | VERIFY" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="VERIFY" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Authentication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.authentication.AuthenticationApplication" />
+      <option name="VM_PARAMETERS" value="-Dbe.vinci.ipl.authentification.secret=Groupe12" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.eureka.EurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExecutionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="execution" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.execution.ExecutionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InvestorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Investor" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.investor.InvestorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatchingApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Matching" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.matching.MatchingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatchingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Matching" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.matching.MatchingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrdersApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Orders" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.orders.OrdersApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PriceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Price" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.price.PriceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WalletApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Wallet" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.wallet.WalletApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.authentication | VERIFY" />
+        <item itemvalue="HTTP Request.authentication | CONNECT ONE" />
+        <item itemvalue="HTTP Request.authentication | UPDATE ONE" />
+        <item itemvalue="HTTP Request.authentication | CREATE ONE" />
+        <item itemvalue="HTTP Request.authentication | DELETE ONE" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fc98020-beac-4bc0-864d-e89ee2c76c40" name="Changes" comment="" />
+      <created>1700653152523</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700653152523</updated>
+      <workItem from="1700653153551" duration="190000" />
+      <workItem from="1701257124950" duration="1201000" />
+      <workItem from="1701261106668" duration="81000" />
+      <workItem from="1701261199494" duration="7130000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

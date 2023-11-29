@@ -19,17 +19,18 @@ public class OrdersController {
     }
 
 
+
     @PostMapping("/order")
     public ResponseEntity<Order> placeOrder(@RequestBody Order order) {
         if (order.getGuid() != null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-        boolean created = ordersService.createOne(order);
-        return new ResponseEntity<>(HttpStatus.OK);
+        Order newOrder = ordersService.createOne(order);
+        return new ResponseEntity<>(newOrder, HttpStatus.OK);
     }
 
     @GetMapping("/order/{guid}")
     public ResponseEntity<Order> readOrder(@PathVariable String guid) {
-        Order order = ordersService.getOne(guid);
+        Order order = ordersService.readOne(guid);
         if (order == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -38,7 +39,7 @@ public class OrdersController {
 
     @PatchMapping("/order/{guid}")
     public ResponseEntity<Order> updateActionQuantity(@PathVariable String guid, @RequestBody Order order) {
-        boolean updated = ordersService.updateActionsQuantity(order);
+        boolean updated = ordersService.updateSharesQuantity(order);
 
         if (!updated) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         else return new ResponseEntity<>(HttpStatus.OK);
