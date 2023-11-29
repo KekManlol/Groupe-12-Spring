@@ -1,5 +1,5 @@
 ### Read One by username
-GET http://localhost:9005/wallet/test/net-worth
+GET http://localhost:9005/wallet/bob/net-worth
 
 ### Read All by username
 GET http://localhost:9005/wallet/bob
@@ -29,7 +29,7 @@ GET http://localhost:9005/wallet/test/net-worth
 GET http://localhost:9005/wallet/test
 
 ### Add Position(s) by inexistant investor
-POST http://localhost:9005/wallet/bob
+POST http://localhost:9005/wallet/test
 Content-Type: application/json
 
 [

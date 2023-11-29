@@ -5,41 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8287bfc4-5b0e-4e9d-90a2-063ff9f820ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Price.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/PriceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151136.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151612.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151753.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151857.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151952.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152157.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152218.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152349.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152352.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152414.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152427.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152453.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152501.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152631.404.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152637.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152717.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153046.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153057.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153103.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153830.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153843.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/InvestorData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/InvestorProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Investor/src/test/investorsTests.http" beforeDir="false" afterPath="$PROJECT_DIR$/Investor/src/test/investorsTests.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Investor/src/test/java/be/vinci/ipl/investor/InvestorApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/test/java/be/vinci/ipl/wallet/WalletApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/models/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/models/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,31 +47,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/tqueg/Documents/Cours/Spring/Groupe-12-Spring/Vinci Stock eXchange/.idea",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "6b92baf82672cad54226900d2f8f9880",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tqueg/Documents/Cours/Spring/Groupe-12-Spring/Vinci Stock eXchange/.idea&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6b92baf82672cad54226900d2f8f9880&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tqueg\Documents\Cours\Spring\Groupe-12-Spring\Vinci Stock eXchange\.idea" />
@@ -110,20 +85,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WalletApplication">
-    <configuration name="walletsTests | Read All by username" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="2" requestIdentifier="Read All by username" runType="Run single request">
+  <component name="RunManager" selected="Spring Boot.InvestorApplication">
+    <configuration name="investorsTests | Create one with invalid investor data" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Investor/src/test/investorsTests.http" index="6" requestIdentifier="Create one with invalid investor data" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="walletsTests | Read All positions by inexistant investor" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="5" requestIdentifier="Read All positions by inexistant investor" runType="Run single request">
+    <configuration name="investorsTests | Create one#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Investor/src/test/investorsTests.http" index="5" requestIdentifier="Create one#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="walletsTests | Read One by inexistant investor" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="4" requestIdentifier="Read One by inexistant investor" runType="Run single request">
+    <configuration name="investorsTests | Read one inexistant investor" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Investor/src/test/investorsTests.http" index="4" requestIdentifier="Read one inexistant investor" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="walletsTests | Read One by username" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" requestIdentifier="Read One by username" runType="Run single request">
+    <configuration name="investorsTests | Update one invalid data" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Investor/src/test/investorsTests.http" index="8" requestIdentifier="Update one invalid data" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="walletsTests | update" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="3" requestIdentifier="update" runType="Run single request">
+    <configuration name="investorsTests | Update one#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Investor/src/test/investorsTests.http" index="7" requestIdentifier="Update one#2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -207,11 +182,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.walletsTests | Read All by username" />
-      <item itemvalue="HTTP Request.walletsTests | Read All positions by inexistant investor" />
-      <item itemvalue="HTTP Request.walletsTests | Read One by inexistant investor" />
-      <item itemvalue="HTTP Request.walletsTests | update" />
-      <item itemvalue="HTTP Request.walletsTests | Read One by username" />
+      <item itemvalue="HTTP Request.investorsTests | Create one with invalid investor data" />
+      <item itemvalue="HTTP Request.investorsTests | Create one#2" />
+      <item itemvalue="HTTP Request.investorsTests | Read one inexistant investor" />
+      <item itemvalue="HTTP Request.investorsTests | Update one invalid data" />
+      <item itemvalue="HTTP Request.investorsTests | Update one#2" />
       <item itemvalue="Spring Boot.AuthenticationApplication" />
       <item itemvalue="Spring Boot.MatchingApplication" />
       <item itemvalue="Spring Boot.MatchingApplication (1)" />
@@ -224,11 +199,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.walletsTests | Read One by inexistant investor" />
-        <item itemvalue="HTTP Request.walletsTests | Read All positions by inexistant investor" />
-        <item itemvalue="HTTP Request.walletsTests | Read All by username" />
-        <item itemvalue="HTTP Request.walletsTests | Read One by username" />
-        <item itemvalue="HTTP Request.walletsTests | update" />
+        <item itemvalue="HTTP Request.investorsTests | Update one invalid data" />
+        <item itemvalue="HTTP Request.investorsTests | Update one#2" />
+        <item itemvalue="HTTP Request.investorsTests | Create one with invalid investor data" />
+        <item itemvalue="HTTP Request.investorsTests | Create one#2" />
+        <item itemvalue="HTTP Request.investorsTests | Read one inexistant investor" />
       </list>
     </recent_temporary>
   </component>
