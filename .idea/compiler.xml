@@ -2,31 +2,17 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Orders" />
-        <module name="execution" />
-        <module name="Eureka" />
         <module name="Price" />
-        <module name="Accounts" />
-        <module name="Authentication" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Accounts" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Accounts" options="-parameters" />
-      <module name="Authentication" options="-parameters" />
-      <module name="Eureka" options="-parameters" />
-      <module name="Orders" options="-parameters" />
       <module name="Price" options="-parameters" />
-      <module name="execution" options="-parameters" />
     </option>
   </component>
 </project>
