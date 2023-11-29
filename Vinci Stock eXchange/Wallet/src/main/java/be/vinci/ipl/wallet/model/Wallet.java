@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.List;
 import lombok.Getter;
@@ -24,10 +25,11 @@ public class Wallet {
 
   @Id
   @Column(unique = true)
+  @Size(max= 4, min = 4)
   private String ticker;
   private String username;
   @Column(name = "unit_value", nullable = false)
-  private double unitValue;
+  private float unitValue;
   @Column(nullable = false)
   private int quantity;
 

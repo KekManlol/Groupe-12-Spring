@@ -1,3 +1,730 @@
+GET http://localhost:9005/wallet/test/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:9005/wallet/test
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:9005/wallet/bob
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T193123.200.json
+
+###
+
+GET http://localhost:9005/wallet/test
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:9005/wallet/test/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T193026.500.json
+
+###
+
+GET http://localhost:9005/wallet/test
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T193017.200.json
+
+###
+
+POST http://localhost:9005/wallet/test
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+###
+
+GET http://localhost:9005/wallet/test/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T192438.200.json
+
+###
+
+GET http://localhost:9005/wallet/test/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T192435.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T192433.500.json
+
+###
+
+GET http://localhost:9005/wallet/test
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T192318.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T192126.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T192120.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T192033.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T192027.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T191901.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T191620.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T191619.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T191614.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T191144.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T191046.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T190603.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T190559.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T181041.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T181036.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T181035.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T180559.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T180520.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T180511.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T180508.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T174832.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 148
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T174829.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T174709.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T174704.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 148
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T174614.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-29T174305.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 149
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T174251.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 149
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T174242.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 148
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T171234.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 148
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T171227.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 148
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-29T171222.200.json
+
+###
+
 POST http://localhost:9003/authentication/verify
 Content-Type: text/plain
 Content-Length: 168
@@ -95,392 +822,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-11-29T153057.200.txt
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-POST http://localhost:9003/authentication/verify
-Content-Type: text/plain
-Content-Length: 170
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-
-<> 2023-11-29T153046.200.txt
-
-###
-
-PUT http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 51
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "password"
-}
-
-###
-
-POST http://localhost:9003/authentication/verify
-Content-Type: text/plain
-Content-Length: 170
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-
-<> 2023-11-29T152717.200.txt
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T152637.200.txt
-
-###
-
-POST http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: application/json
-Content-Length: 178
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw"
-}
-
-<> 2023-11-29T152631.404.json
-
-###
-
-DELETE http://localhost:9003/authentication/keman
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: application/json
-Content-Length: 178
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw"
-}
-
-<> 2023-11-29T152501.404.json
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: application/json
-Content-Length: 176
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-}
-
-<> 2023-11-29T152453.404.json
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: application/json
-Content-Length: 170
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-
-<> 2023-11-29T152427.404.json
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: text/plain
-Content-Length: 170
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-
-<> 2023-11-29T152414.404.json
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: text/plain
-Content-Length: 174
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-}
-
-<> 2023-11-29T152352.404.json
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T152349.200.txt
-
-###
-
-POST http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: text/plain
-Content-Length: 174
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-}
-
-<> 2023-11-29T152218.404.json
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T152157.200.txt
-
-###
-
-POST http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: text/plain
-Content-Length: 178
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-}
-
-<> 2023-11-29T151952.404.json
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T151857.200.txt
-
-###
-
-POST http://localhost:9003/authentication/authentication/verify
-Content-Type: text/plain
-Content-Length: 178
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoia2VtYW4ifQ.ViLPeWeMmqvcOiYdW8qYA0QCpcyrHvV6WmpYo7DnWXNy5gZ2u91B_2MLaYkhYgjAL6ZVnr-wrJW2WQ-xl7y0Uw
-}
-
-<> 2023-11-29T151753.404.json
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T151612.200.txt
-
-###
-
-POST http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-###
-
-DELETE http://localhost:9003/authentication/keman
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-DELETE http://localhost:9003/authentication/keman
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-POST http://localhost:9003/authentication/connect
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
-
-<> 2023-11-29T151136.200.txt
-
-###
-
-POST http://localhost:9003/authentication/keman
-Content-Type: application/json
-Content-Length: 52
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "username": "keman",
-  "password": "blablabla"
-}
 
 ###
 

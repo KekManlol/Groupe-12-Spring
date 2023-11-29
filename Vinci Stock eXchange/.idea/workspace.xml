@@ -4,8 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fc98020-beac-4bc0-864d-e89ee2c76c40" name="Changes" comment="">
+    <list default="true" id="8287bfc4-5b0e-4e9d-90a2-063ff9f820ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Price.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/PriceProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151136.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151612.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151753.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151857.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T151952.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152157.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152218.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152349.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152352.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152414.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152427.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152453.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152501.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152631.404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152637.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T152717.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153046.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/InvestorData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/InvestorProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +45,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTTP Private Environment File" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,6 +75,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
@@ -53,10 +85,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "rest.client.default.execution.environment": "dev",
+    "spring.configuration.checksum": "6b92baf82672cad54226900d2f8f9880",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -73,20 +105,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AuthenticationApplication">
-    <configuration name="authentication | CONNECT ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="2" requestIdentifier="CONNECT ONE" runType="Run single request">
+  <component name="RunManager" selected="Spring Boot.WalletApplication">
+    <configuration name="walletsTests | Read All by username" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="2" requestIdentifier="Read All by username" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="authentication | CREATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" requestIdentifier="CREATE ONE" runType="Run single request">
+    <configuration name="walletsTests | Read All positions by inexistant investor" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="5" requestIdentifier="Read All positions by inexistant investor" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="authentication | DELETE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="DELETE ONE" runType="Run single request">
+    <configuration name="walletsTests | Read One by inexistant investor" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="4" requestIdentifier="Read One by inexistant investor" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="authentication | UPDATE ONE" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="5" requestIdentifier="UPDATE ONE" runType="Run single request">
+    <configuration name="walletsTests | Read One by username" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" requestIdentifier="Read One by username" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="authentication | VERIFY" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Authentication/authentication.http" index="3" requestIdentifier="VERIFY" runType="Run single request">
+    <configuration name="walletsTests | update" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" index="3" requestIdentifier="update" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -153,20 +185,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="C:\Users\quoca\Desktop\spring_project\Groupe-12-Spring\Vinci Stock eXchange\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="C:\Users\quoca\Desktop\spring_project\Groupe-12-Spring\Vinci Stock eXchange\Price\price.yaml" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.walletsTests | Read All by username" />
+      <item itemvalue="HTTP Request.walletsTests | Read All positions by inexistant investor" />
+      <item itemvalue="HTTP Request.walletsTests | Read One by inexistant investor" />
+      <item itemvalue="HTTP Request.walletsTests | update" />
+      <item itemvalue="HTTP Request.walletsTests | Read One by username" />
+      <item itemvalue="Spring Boot.AuthenticationApplication" />
+      <item itemvalue="Spring Boot.MatchingApplication" />
+      <item itemvalue="Spring Boot.MatchingApplication (1)" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.ExecutionApplication" />
+      <item itemvalue="Spring Boot.OrdersApplication" />
+      <item itemvalue="Spring Boot.PriceApplication" />
+      <item itemvalue="Spring Boot.InvestorApplication" />
+      <item itemvalue="Spring Boot.WalletApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.authentication | VERIFY" />
-        <item itemvalue="HTTP Request.authentication | CONNECT ONE" />
-        <item itemvalue="HTTP Request.authentication | UPDATE ONE" />
-        <item itemvalue="HTTP Request.authentication | CREATE ONE" />
-        <item itemvalue="HTTP Request.authentication | DELETE ONE" />
+        <item itemvalue="HTTP Request.walletsTests | Read One by inexistant investor" />
+        <item itemvalue="HTTP Request.walletsTests | Read All positions by inexistant investor" />
+        <item itemvalue="HTTP Request.walletsTests | Read All by username" />
+        <item itemvalue="HTTP Request.walletsTests | Read One by username" />
+        <item itemvalue="HTTP Request.walletsTests | update" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0fc98020-beac-4bc0-864d-e89ee2c76c40" name="Changes" comment="" />
+      <changelist id="8287bfc4-5b0e-4e9d-90a2-063ff9f820ac" name="Changes" comment="" />
       <created>1700653152523</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -175,6 +239,7 @@
       <workItem from="1701257124950" duration="1201000" />
       <workItem from="1701261106668" duration="81000" />
       <workItem from="1701261199494" duration="7130000" />
+      <workItem from="1701277201668" duration="4884000" />
     </task>
     <servers />
   </component>
