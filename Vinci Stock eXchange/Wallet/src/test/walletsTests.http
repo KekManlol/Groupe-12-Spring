@@ -1,0 +1,23 @@
+### Read One by username
+GET http://localhost:9005/wallet/bob/net-worth
+
+### Read All by username
+GET http://localhost:9005/wallet/bob
+
+### update
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+
+[
+  {
+    "ticker": "AAPL",
+    "quantity": 10,
+    "unitvalue": 155.9
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]

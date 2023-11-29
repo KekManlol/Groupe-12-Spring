@@ -2,6 +2,7 @@ package be.vinci.ipl.investor;
 
 import be.vinci.ipl.investor.model.InvestorData;
 import be.vinci.ipl.investor.model.InvestorWithPassword;
+import jakarta.persistence.criteria.CriteriaBuilder.In;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -29,7 +30,8 @@ public class InvestorService {
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
     InvestorData investorData = investorWithPassword.getInvestorData();
-    if (repository.existsById(investorData.getUsername())) return false;
+    System.out.println(investorWithPassword.getInvestorData());
+    if (!repository.existsById(investorData.getUsername())) return false;
     repository.save(investorWithPassword.getInvestorData());
     return true;
   }

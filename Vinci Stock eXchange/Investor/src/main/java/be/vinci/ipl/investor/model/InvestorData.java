@@ -20,12 +20,15 @@ public class InvestorData {
   @Column(nullable = false)
   private String email;
   @Column(nullable = false)
+  private String firstname;
+  @Column(nullable = false)
   private String lastname;
   @Column(nullable = false)
   private String birthday;
   public boolean invalid() {
     return username == null || username.isBlank() ||
         email == null || email.isBlank() ||
+        firstname == null || firstname.isBlank() ||
         lastname == null || lastname.isBlank() ||
         birthday == null || birthday.isBlank();
   }

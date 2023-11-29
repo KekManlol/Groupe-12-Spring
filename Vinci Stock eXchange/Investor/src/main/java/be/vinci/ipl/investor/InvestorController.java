@@ -26,13 +26,13 @@ public class InvestorController {
     else return new ResponseEntity<>(investorData, HttpStatus.OK);
   }
   @PostMapping("/investor/{username}")
-  public ResponseEntity<InvestorWithPassword> createOne(@PathVariable String username, @RequestBody
+  public ResponseEntity<InvestorData> createOne(@PathVariable String username, @RequestBody
       InvestorWithPassword investorWithPassword){
     if (!Objects.equals(investorWithPassword.getInvestorData().getUsername(), username)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     if (investorWithPassword.invalid()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     boolean created = service.createOne(investorWithPassword);
     if (!created) return new ResponseEntity<>(HttpStatus.CONFLICT);
-   return new ResponseEntity<>(investorWithPassword, HttpStatus.OK);
+   return new ResponseEntity<>(investorWithPassword.getInvestorData(), HttpStatus.OK);
   }
 
   @PutMapping("/investor/{username}")
@@ -43,7 +43,7 @@ public class InvestorController {
     boolean found = service.updateOne(investorData);
 
     if (!found) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    else return new ResponseEntity<>(HttpStatus.OK);
+    else return new ResponseEntity<>(investorData, HttpStatus.OK);
   }
 
   @DeleteMapping("/investor/{username}")

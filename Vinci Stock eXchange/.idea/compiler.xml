@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -11,13 +12,14 @@
         <module name="Price" />
         <module name="Authentication" />
         <module name="Gateway" />
+        <module name="Wallet" />
         <module name="Investor" />
+        <module name="Eureka" />
         <module name="Accounts" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Accounts" target="17" />
-      <module name="Eureka" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -29,6 +31,7 @@
       <module name="Investor" options="-parameters" />
       <module name="Orders" options="-parameters" />
       <module name="Price" options="-parameters" />
+      <module name="Wallet" options="-parameters" />
       <module name="execution" options="-parameters" />
     </option>
   </component>
