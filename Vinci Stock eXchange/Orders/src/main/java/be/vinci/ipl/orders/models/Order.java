@@ -1,8 +1,7 @@
 package be.vinci.ipl.orders.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,11 +23,16 @@ public class Order {
 
     @Column(nullable = false)
     private String ticker;
+
     @Column(nullable = false)
     private int quantity;
+
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private OrderSide side;
+
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private OrderType type;
 
     private double limit;
