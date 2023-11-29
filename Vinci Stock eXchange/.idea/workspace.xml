@@ -27,7 +27,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2023-11-29T153046.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/WalletService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/model/InvestorData.java" beforeDir="false" />
@@ -36,13 +35,11 @@
       <change beforePath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/java/be/vinci/ipl/wallet/repositories/WalletRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/main/resources/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet/src/test/walletsTests.http" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/PriceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/models/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/Price/src/main/java/be/vinci/ipl/price/models/Price.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/execution/src/main/java/be/vinci/ipl/execution/ExecutionService.java" afterDir="false" />
->>>>>>> 4142a665e19dca63290a3a38ceb4bd167ff527fa
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
