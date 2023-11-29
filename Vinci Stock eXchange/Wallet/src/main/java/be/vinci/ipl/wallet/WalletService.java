@@ -3,64 +3,92 @@ package be.vinci.ipl.wallet;
 
 import be.vinci.ipl.wallet.model.InvestorData;
 import be.vinci.ipl.wallet.model.Position;
+import be.vinci.ipl.wallet.model.Wallet;
 import be.vinci.ipl.wallet.repositories.InvestorProxy;
-import be.vinci.ipl.wallet.repositories.PositionRepository;
+import be.vinci.ipl.wallet.repositories.WalletRepository;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collection;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.springframework.stereotype.Service;
 
 @Service
 public class WalletService {
-  private final PositionRepository positionRepository;
+  private final WalletRepository repository;
   private final InvestorProxy investorProxy;
 
 
 
-  public WalletService(PositionRepository positionRepository, InvestorProxy investorProxy) {
-    this.positionRepository = positionRepository;
+  public WalletService(WalletRepository repository, InvestorProxy investorProxy) {
+    this.repository = repository;
     this.investorProxy = investorProxy;
-
   }
-  public List<Position> createPositions(String username, List<Position> newPositions) {
-    InvestorData investorData = investorProxy.readOne(username);
-    List<Position> existingPositions = investorData.getPositions();
+  public Double getNetWorth(String username) {
+    List<Wallet> positions = repository.findByUsername(username);
 
-    for (Position newPosition : newPositions) {
-      String ticker = newPosition.getTicker();
-      int newQuantity = newPosition.getQuantity();
-      double unitValue = newPosition.getUnitValue();
+    return positions.stream()
+        .mapToDouble(position -> position.getQuantity() * position.getUnitValue())
+        .sum();
+  }
+  public List<Position> getOpenPositions(String username) {
+    List<Wallet> positions = repository.findByUsername(username);
 
-      boolean positionExists = false;
+    List<Position> openPositions = positions.stream()
+        .map(entity -> {
+          Position position = new Position();
+          position.setTicker(entity.getTicker());
+          position.setQuantity(entity.getQuantity());
+          position.setUnitValue(entity.getUnitValue());
+          return position;
+        })
+        .filter(position -> position.getQuantity() > 0)
+        .collect(Collectors.toList());
 
-      for (Position existingPosition : existingPositions) {
-        if (existingPosition.getTicker().equals(ticker)) {
-          // Update existing position
-          existingPosition.setQuantity(existingPosition.getQuantity() + newQuantity);
-          positionExists = true;
-          break;
+    return openPositions;
+  }
+
+  public List<Position> addPositions(String username, List<Position> positions) {
+    List<Wallet> existingPositions = repository.findByUsername(username);
+
+    for (Position position : positions) {
+      Wallet existingPosition = existingPositions.stream()
+          .filter(p -> p.getTicker().equals(position.getTicker()))
+          .findFirst()
+          .orElse(null);
+
+      if (existingPosition != null) {
+        // Mettre à jour la quantité existante
+        existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
+        if (position.getUnitValue() != 0.0) {
+          existingPosition.setUnitValue(position.getUnitValue());
         }
-      }
-
-      if (!positionExists) {
-        // Add new position
-        Position newPositionObject = new Position();
-        newPositionObject.setTicker(ticker);
-        newPositionObject.setQuantity(newQuantity);
-        newPositionObject.setUnitValue(unitValue);
-        existingPositions.add(newPositionObject);
+        repository.save(existingPosition);
+      } else {
+        // Créer une nouvelle position si elle n'existe pas
+        Wallet newPosition = new Wallet();
+        newPosition.setUsername(username);
+        newPosition.setTicker(position.getTicker());
+        newPosition.setQuantity(position.getQuantity());
+        newPosition.setUnitValue(position.getUnitValue());
+        repository.save(newPosition);
       }
     }
 
-    // Update the investorData object with the modified positions
-    investorData.setPositions(existingPositions);
+    // Récupérer les positions mises à jour depuis la base de données
+    List<Wallet> updatedPositions = repository.findByUsername(username);
 
-    // Print the updated positions
-    System.out.println(existingPositions);
+    // Mapper les positions vers PositionDTO
+    List<Position> updatedPositionDTOs = updatedPositions.stream()
+        .map(entity -> {
+          Position position = new Position();
+          position.setTicker(entity.getTicker());
+          position.setQuantity(entity.getQuantity());
+          position.setUnitValue(entity.getUnitValue());
+          return position;
+        })
+        .collect(Collectors.toList());
 
-    return existingPositions;
+    return updatedPositionDTOs;
   }
-
-
 }

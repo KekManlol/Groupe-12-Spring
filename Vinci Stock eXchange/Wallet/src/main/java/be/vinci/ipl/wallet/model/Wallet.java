@@ -19,11 +19,17 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@Entity(name = "wallets")
 public class Wallet {
+
   @Id
-  private Long id;
+  @Column(unique = true)
+  private String ticker;
   private String username;
-  private List<Position> positionId;
+  @Column(name = "unit_value", nullable = false)
+  private double unitValue;
+  @Column(nullable = false)
+  private int quantity;
 
 }
 
