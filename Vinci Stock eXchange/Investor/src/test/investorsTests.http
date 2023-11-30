@@ -28,3 +28,59 @@ Content-Type: application/json
     "lastname": "Eponge",
     "birthday": "2000-01-01"
 }
+
+### Read one investor not found
+GET http://localhost:9001/investor/patrick
+
+### Create one with unmatched usernames
+POST http://localhost:9001/investor/bob
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "test",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+### Create one with invalid investor data
+POST http://localhost:9001/investor/bob
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "bob",
+    "email": "",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+
+### Update one investor not found
+PUT http://localhost:9001/investor/patrick
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "email": "bob.eponge@gmail.com",
+  "firstname": "Bob",
+  "lastname": "Eponge",
+  "birthday": "2000-01-01"
+}
+
+### Update one invalid data
+PUT http://localhost:9001/investor/patrick
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "email": "",
+  "firstname": "Bob",
+  "lastname": "Eponge",
+  "birthday": "2000-01-01"
+}

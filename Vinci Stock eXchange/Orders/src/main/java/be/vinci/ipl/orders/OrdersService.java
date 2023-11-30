@@ -38,14 +38,15 @@ public class OrdersService {
     /**
      * Updates an order's share quantity in repository
      *
-     * @param updatedOrder Order with updated quantity
+     * @param guid Guid of the order
+     * @param filled Quantity of shares already exchanged
      * @return true if the order was updated or false if the order couldn't be found
      */
-    public boolean updateSharesQuantity(Order updatedOrder) {
-        Order order = repository.findByGuid(updatedOrder.getGuid()).orElse(null);
+    public boolean updateSharesQuantity(String guid, int filled) {
+        Order order = repository.findByGuid(guid).orElse(null);
         if (order == null) return false;
 
-        order.setFilled(updatedOrder.getFilled());
+        order.setFilled(filled);
         repository.save(order);
         return true;
     }
@@ -71,7 +72,7 @@ public class OrdersService {
     public Iterable<Order> getOpenOrders(String ticker, OrderSide side) {
         Iterable<Order> orders = repository.findByTickerAndSide(ticker, side);
         return StreamSupport.stream(orders.spliterator(), false)
-                .filter(order -> order.getLimit() < order.getQuantity())
+                .filter(order -> order.getFilled() < order.getQuantity())
                 .toList();
     }
 }

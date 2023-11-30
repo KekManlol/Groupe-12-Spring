@@ -4,15 +4,39 @@ GET http://localhost:9005/wallet/bob/net-worth
 ### Read All by username
 GET http://localhost:9005/wallet/bob
 
-### update
+### Add Position(s) by username
 POST http://localhost:9005/wallet/bob
 Content-Type: application/json
 
 [
   {
-    "ticker": "AAPL",
+    "ticker": "ABCD",
     "quantity": 10,
-    "unitvalue": 155.9
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+### Read One by inexistant investor
+GET http://localhost:9005/wallet/test/net-worth
+
+### Read All positions by inexistant investor
+GET http://localhost:9005/wallet/test
+
+### Add Position(s) by inexistant investor
+POST http://localhost:9005/wallet/test
+Content-Type: application/json
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
   },
 
   {

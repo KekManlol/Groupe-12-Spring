@@ -2,16 +2,22 @@ package be.vinci.ipl.investor;
 
 import be.vinci.ipl.investor.model.InvestorData;
 import be.vinci.ipl.investor.model.InvestorWithPassword;
-import jakarta.persistence.criteria.CriteriaBuilder.In;
+import be.vinci.ipl.investor.model.UnsafeCrendential;
+import be.vinci.ipl.investor.repositories.AuthentificationProxy;
+import be.vinci.ipl.investor.repositories.WalletProxy;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class InvestorService {
   private final InvestorRepository repository;
+  private final AuthentificationProxy authentificationProxy;
+  private final WalletProxy walletProxy;
 
-  public InvestorService(InvestorRepository repository) {
+  public InvestorService(InvestorRepository repository, AuthentificationProxy authentificationProxy,
+      WalletProxy walletProxy) {
     this.repository = repository;
+    this.authentificationProxy = authentificationProxy;
+    this.walletProxy = walletProxy;
   }
 
 
@@ -27,11 +33,18 @@ public class InvestorService {
    * Creates an investor with a password in repository
    * @param investorWithPassword The investor with insecure password
    * @return True if the credentials were created, or false if they already exist
+   *
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
     InvestorData investorData = investorWithPassword.getInvestorData();
-    System.out.println(investorWithPassword.getInvestorData());
     if (!repository.existsById(investorData.getUsername())) return false;
+
+    UnsafeCrendential unsafeCrendential = new UnsafeCrendential();
+    String username = investorWithPassword.getInvestorData().getUsername();
+    unsafeCrendential.setPassword(investorWithPassword.getPassword());
+    unsafeCrendential.setUsername(investorWithPassword.getInvestorData().getUsername());
+    authentificationProxy.createOne(username,unsafeCrendential);
+
     repository.save(investorWithPassword.getInvestorData());
     return true;
   }
@@ -50,9 +63,18 @@ public class InvestorService {
    * @param username The username of the investor
    * @return True if the credentials and his wallet were deleted, or false if they couldn't be found
    */
-  public boolean deleteOne(String username) {
-    if (!repository.existsById(username)) return false;
+  public int deleteOne(String username) {
+
+
+    // delete credendtials
+    boolean found = authentificationProxy.deleteOne(username);
+    if (!found) return -1;
     repository.deleteById(username);
-    return true;
+
+    // "delete" wallets
+    float netWorth = walletProxy.getNetWorth(username);
+    if (netWorth == 0) return -2;
+
+    return 1;
   }
 }

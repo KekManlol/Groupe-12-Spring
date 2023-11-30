@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.List;
 import lombok.Getter;
@@ -19,11 +20,18 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@Entity(name = "wallets")
 public class Wallet {
+
   @Id
-  private Long id;
+  @Column(unique = true)
+  @Size(max= 4, min = 4)
+  private String ticker;
   private String username;
-  private List<Position> positionId;
+  @Column(name = "unit_value", nullable = false)
+  private float unitValue;
+  @Column(nullable = false)
+  private int quantity;
 
 }
 

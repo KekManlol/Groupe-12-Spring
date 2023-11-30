@@ -244,7 +244,7 @@ paths:
     
     post:
       description: |
-        Permet à l'investisseur de verser ou retirer de son portefeuille
+        Permet à l'investisseur de verser ou retirer du cash de son portefeuille
       requestBody:
         content:
           'application/json':
@@ -293,3 +293,48 @@ paths:
             'application/json':
               schema:
                 type: number
+  /wallet/{username}/position/{ticker}:
+    parameters:
+    - name: username
+      in: path
+      description: le username de l'investisseur (plus d'infos, voir 'investor.yml#/components/schemas/investordata')
+      required: true
+      schema: 
+        type: string
+    - name: ticker
+      in: path
+      description: le ticker d'un titre (plus d'infos, voir 'wallet.yml#/components/schemas/position')
+      required: true
+      schema: 
+        type: string
+    
+    post:
+      description: |
+        Permet à l'investisseur de verser ou retirer une quantité d'un titre de son portefeuille
+      requestBody:
+        content:
+          'application/json':
+            schema:
+                type: object
+                properties:
+                  quantity: 
+                    description: |
+                      la quantité de ce titre ajoutée ou supprimée du portefeuille de l'investisseur. 
+                      Une valeur positive indiquera que l'investisseur a fait un dépot d'actions de ce titre sur son compte.
+                      Une valeur négative indiquera que l'investisseur a fait un retrait d'actions de ce titre depuis son compte.
+                    type: number
+            example:
+            - quantity: 1000.0
+      responses:
+        401:
+          description: vous n'avez pas le droit de consulter les données de cet investisseur
+        404: 
+          description: l'investisseur n'a pas pu être trouvé
+        200:
+          description: les nouvelles positions ouvertes de cet investisseur (après qu'elles ait été mises à jour)
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: 'wallet.yml#/components/schemas/position'

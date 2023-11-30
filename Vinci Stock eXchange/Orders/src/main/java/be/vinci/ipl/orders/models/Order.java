@@ -1,7 +1,9 @@
 package be.vinci.ipl.orders.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,26 +17,30 @@ import lombok.Setter;
 public class Order {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(updatable = false)
     private String guid;
-    
+
+    @Column(updatable = false)
     private String owner;
+    @Column(updatable = false)
+    private int timestamp;
 
-    private String timestamp;
-
-    @Column(nullable = false)
+    @Column(updatable = false, nullable = false)
     private String ticker;
 
-    @Column(nullable = false)
+    @Column(updatable = false, nullable = false)
     private int quantity;
 
-    @Column(nullable = false)
+    @Column(updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
     private OrderSide side;
 
-    @Column(nullable = false)
+    @Column(updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
     private OrderType type;
 
+    @Column(name = "limit_price", updatable = false)
     private double limit;
     private int filled;
 }

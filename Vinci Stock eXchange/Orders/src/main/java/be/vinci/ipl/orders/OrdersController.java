@@ -2,6 +2,7 @@ package be.vinci.ipl.orders;
 
 import be.vinci.ipl.orders.models.Order;
 import be.vinci.ipl.orders.models.OrderSide;
+import be.vinci.ipl.orders.models.PatchDTO;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,18 +39,19 @@ public class OrdersController {
     }
 
     @PatchMapping("/order/{guid}")
-    public ResponseEntity<Order> updateActionQuantity(@PathVariable String guid, @RequestBody Order order) {
-        boolean updated = ordersService.updateSharesQuantity(order);
+    public ResponseEntity<Void> updateSharesQuantity(@PathVariable String guid, @RequestBody
+        PatchDTO patchDTO) {
+        boolean updated = ordersService.updateSharesQuantity(guid, patchDTO.getFilled());
 
         if (!updated) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         else return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/order/by-user/{username}")
-    public ResponseEntity<Order> readAllOrdersFromUser(@PathVariable String username) {
+    public ResponseEntity<Iterable<Order>> readAllOrdersFromUser(@PathVariable String username) {
         Iterable<Order> orders = ordersService.readFromUser(username);
         if (orders == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        else return new ResponseEntity<>(HttpStatus.OK);
+        else return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @GetMapping("/order/open/by-ticker/{ticker}/{side}")

@@ -1,66 +1,64 @@
 package be.vinci.ipl.wallet;
 
-
-import be.vinci.ipl.wallet.model.InvestorData;
 import be.vinci.ipl.wallet.model.Position;
-import be.vinci.ipl.wallet.repositories.InvestorProxy;
-import be.vinci.ipl.wallet.repositories.PositionRepository;
-import java.util.ArrayList;
-import java.util.HashMap;
+import be.vinci.ipl.wallet.model.Wallet;
+import be.vinci.ipl.wallet.repositories.PriceProxy;
+import be.vinci.ipl.wallet.repositories.WalletRepository;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 @Service
 public class WalletService {
-  private final PositionRepository positionRepository;
-  private final InvestorProxy investorProxy;
+  private final WalletRepository repository;
+  private final PriceProxy priceProxy;
 
-
-
-  public WalletService(PositionRepository positionRepository, InvestorProxy investorProxy) {
-    this.positionRepository = positionRepository;
-    this.investorProxy = investorProxy;
-
+  public WalletService(WalletRepository repository, PriceProxy priceProxy) {
+    this.repository = repository;
+    this.priceProxy = priceProxy;
   }
-  public List<Position> createPositions(String username, List<Position> newPositions) {
-    InvestorData investorData = investorProxy.readOne(username);
-    List<Position> existingPositions = investorData.getPositions();
+  public float getNetWorth(String username) {
+    List<Wallet> positions = repository.findByUsername(username);
+    int totalQuantity = positions.stream().mapToInt(Wallet::getQuantity).sum();
+    if (totalQuantity == 0) return -1;
 
-    for (Position newPosition : newPositions) {
-      String ticker = newPosition.getTicker();
-      int newQuantity = newPosition.getQuantity();
-      double unitValue = newPosition.getUnitValue();
+    float netWorth = 0;
+    for (Wallet position : positions) {
+      netWorth += position.getQuantity() * priceProxy.getPriceByTicker(position.getTicker()).getPrice();
+    }
+    return netWorth;
+  }
+  public List<Position> getOpenPositions(String username) {
+    List<Wallet> positions = repository.findByUsername(username);
+    int totalQuantity = positions.stream().mapToInt(Wallet::getQuantity).sum();
+    if (totalQuantity == 0) return null;
 
-      boolean positionExists = false;
+    return positions.stream()
+        .map(wallet -> {
+          Position position = new Position();
+          position.setTicker(wallet.getTicker());
+          position.setQuantity(wallet.getQuantity());
+          position.setUnitValue(wallet.getUnitValue());
+          return position;
+        })
+        .filter(position -> position.getQuantity() > 0)
+        .collect(Collectors.toList());
+  }
 
-      for (Position existingPosition : existingPositions) {
-        if (existingPosition.getTicker().equals(ticker)) {
-          // Update existing position
-          existingPosition.setQuantity(existingPosition.getQuantity() + newQuantity);
-          positionExists = true;
-          break;
-        }
-      }
+  public List<Position> addPositions(String username, List<Position> newPositions) {
+    List<Wallet> existingPositions = repository.findByUsername(username);
+    if (existingPositions == null) return null;
 
-      if (!positionExists) {
-        // Add new position
-        Position newPositionObject = new Position();
-        newPositionObject.setTicker(ticker);
-        newPositionObject.setQuantity(newQuantity);
-        newPositionObject.setUnitValue(unitValue);
-        existingPositions.add(newPositionObject);
+    for (Position position : newPositions) {
+      Wallet existingPosition = existingPositions.stream()
+          .filter(p -> p.getTicker().equals(position.getTicker()))
+          .findFirst()
+          .orElse(null);
+      if (existingPosition != null) {
+        existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
+        repository.save(existingPosition);
       }
     }
-
-    // Update the investorData object with the modified positions
-    investorData.setPositions(existingPositions);
-
-    // Print the updated positions
-    System.out.println(existingPositions);
-
-    return existingPositions;
+    return getOpenPositions(username);
   }
-
-
 }

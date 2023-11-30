@@ -1,9 +1,126 @@
-### Create review
-POST http://localhost:9003/orders
+### Create order
+POST http://localhost:9002/order
 Content-Type: application/json
 
 {
-  "owner": "JxS5E-kZc2s",
-  "rating": 4,
-  "comment": "Meh…"
+  "owner": "testUser",
+  "timestamp": 123456789,
+  "ticker": "AAPL",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 0
 }
+
+### Create order with guid
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "guid": "1ea201e5-af1b-43a4-8499-9458cf19c6a1",
+  "owner": "testUser",
+  "timestamp": 123456789,
+  "ticker": "AAPL",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 0
+}
+
+### Read existing order
+GET http://localhost:9002/order/c4495c08-96d4-4e14-81d3-e50cbc114a4b
+
+### Read non-existing order
+GET http://localhost:9002/order/1ea201e5-af1b-43a4-8499-9458cf27c6a1
+
+### Update filled of existing order
+PATCH http://localhost:9002/order/c4495c08-96d4-4e14-81d3-e50cbc114a4b
+Content-Type: application/json
+
+{
+  "filled": 2
+}
+
+### Update filled of non-existing order
+PATCH http://localhost:9002/order/1ea201e5-af1b-43a4-8499-9458cf27c6a1
+Content-Type: application/json
+
+{
+  "filled": 2
+}
+
+### Create 2nd order for testUser
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 223456789,
+  "ticker": "LNRD",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 0
+}
+
+### Read all orders of an existing user
+GET http://localhost:9002/order/by-user/testUser
+
+### Read all orders of a non-existing user
+GET http://localhost:9002/order/by-user/testNonExistingUser
+
+
+
+
+
+
+### Create 3nd order
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 323456789,
+  "ticker": "LNRD",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 8
+}
+
+### Create 4th order
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 423456789,
+  "ticker": "LNRD",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 10
+}
+
+### Create 5th order
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 523456789,
+  "ticker": "LNRD",
+  "quantity": 10,
+  "side": "SELL",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 2
+}
+
+### Read all open order of a ticker of a side
+GET http://localhost:9002/order/open/by-ticker/LNRD/BUY

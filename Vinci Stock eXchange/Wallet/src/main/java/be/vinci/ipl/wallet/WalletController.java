@@ -1,6 +1,7 @@
 package be.vinci.ipl.wallet;
 
 import be.vinci.ipl.wallet.model.Position;
+import be.vinci.ipl.wallet.model.Wallet;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +17,26 @@ public class WalletController {
 
   public WalletController(WalletService service){this.service = service;}
 
+  @GetMapping("/wallet/{username}/net-worth")
+  public ResponseEntity<Float> getNetWorth(@PathVariable String username) {
+    float netWorth = service.getNetWorth(username);
+    if (netWorth == -1) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(netWorth, HttpStatus.OK);
 
+  }
   @PostMapping("/wallet/{username}")
   public ResponseEntity<List<Position>> addPosition(@PathVariable String username, @RequestBody List<Position> positions) {
-    List<Position> updatedPositions = service.createPositions(username, positions);
+    List<Position> updatedPositions = service.addPositions(username, positions);
+    if (updatedPositions == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     return new ResponseEntity<>(updatedPositions, HttpStatus.OK);
+  }
+  @GetMapping("/wallet/{username}")
+  public ResponseEntity<List<Position>> getOpenPositions(@PathVariable String username) {
+    List<Position> openPositions = service.getOpenPositions(username);
+    if (openPositions == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>(openPositions, HttpStatus.OK);
+
+
   }
 
 
