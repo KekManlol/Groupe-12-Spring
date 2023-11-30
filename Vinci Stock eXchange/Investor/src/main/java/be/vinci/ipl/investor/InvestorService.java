@@ -3,20 +3,20 @@ package be.vinci.ipl.investor;
 import be.vinci.ipl.investor.model.InvestorData;
 import be.vinci.ipl.investor.model.InvestorWithPassword;
 import be.vinci.ipl.investor.model.UnsafeCrendential;
-import be.vinci.ipl.investor.repositories.AuthentificationProxy;
+import be.vinci.ipl.investor.repositories.AuthenticationProxy;
 import be.vinci.ipl.investor.repositories.WalletProxy;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InvestorService {
   private final InvestorRepository repository;
-  private final AuthentificationProxy authentificationProxy;
+  private final AuthenticationProxy authenticationProxy;
   private final WalletProxy walletProxy;
 
-  public InvestorService(InvestorRepository repository, AuthentificationProxy authentificationProxy,
+  public InvestorService(InvestorRepository repository, AuthenticationProxy authentificationProxy,
       WalletProxy walletProxy) {
     this.repository = repository;
-    this.authentificationProxy = authentificationProxy;
+    this.authenticationProxy = authentificationProxy;
     this.walletProxy = walletProxy;
   }
 
@@ -36,15 +36,11 @@ public class InvestorService {
    *
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
-    InvestorData investorData = investorWithPassword.getInvestorData();
-    if (!repository.existsById(investorData.getUsername())) return false;
-
     UnsafeCrendential unsafeCrendential = new UnsafeCrendential();
     String username = investorWithPassword.getInvestorData().getUsername();
     unsafeCrendential.setPassword(investorWithPassword.getPassword());
     unsafeCrendential.setUsername(investorWithPassword.getInvestorData().getUsername());
-    authentificationProxy.createOne(username,unsafeCrendential);
-
+    authenticationProxy.createOne(username, unsafeCrendential);
     repository.save(investorWithPassword.getInvestorData());
     return true;
   }
@@ -67,7 +63,7 @@ public class InvestorService {
 
 
     // delete credendtials
-    boolean found = authentificationProxy.deleteOne(username);
+    boolean found = authenticationProxy.deleteOne(username);
     if (!found) return -1;
     repository.deleteById(username);
 

@@ -32,7 +32,7 @@ public class InvestorController {
     if (investorWithPassword.invalid()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     boolean created = service.createOne(investorWithPassword);
     if (!created) return new ResponseEntity<>(HttpStatus.CONFLICT);
-   return new ResponseEntity<>(HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PutMapping("/investor/{username}")

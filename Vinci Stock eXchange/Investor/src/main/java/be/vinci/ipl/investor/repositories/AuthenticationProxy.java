@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Repository
-@FeignClient(name = "authentification", url = "http://localhost:9003")
-public interface AuthentificationProxy {
+@FeignClient(name = "authentication", url = "http://localhost:9003")
+public interface AuthenticationProxy {
   @PostMapping("/authentication/{username}")
   boolean createOne(@PathVariable String username, @RequestBody UnsafeCrendential unsafeCrendential);
 
