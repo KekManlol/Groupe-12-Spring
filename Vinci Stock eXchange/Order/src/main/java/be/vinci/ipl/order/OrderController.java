@@ -1,8 +1,8 @@
-package be.vinci.ipl.orders;
+package be.vinci.ipl.order;
 
-import be.vinci.ipl.orders.models.Order;
-import be.vinci.ipl.orders.models.OrderSide;
-import be.vinci.ipl.orders.models.PatchDTO;
+import be.vinci.ipl.order.models.Order;
+import be.vinci.ipl.order.models.OrderSide;
+import be.vinci.ipl.order.models.PatchDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

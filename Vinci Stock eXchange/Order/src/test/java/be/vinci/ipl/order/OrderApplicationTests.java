@@ -1,4 +1,4 @@
-package be.vinci.ipl.orders;
+package be.vinci.ipl.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
