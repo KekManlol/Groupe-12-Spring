@@ -24,6 +24,11 @@ public class AuthenticationService {
     this.jwtVerifier = JWT.require(this.jwtAlgorithm).withIssuer("auth0").build();
   }
 
+  /**
+   * Connects investor with unsafe credentials
+   * @param unsafeCredentials The credentials with insecure password
+   * @return The JWT token, or null if the investor couldn't be connected
+   */
   public String connect(UnsafeCredentials unsafeCredentials) {
     SafeCredentials safeCredentials = repository.findById(unsafeCredentials.getUsername()).orElse(null);
     if (safeCredentials == null) return null;
@@ -31,6 +36,11 @@ public class AuthenticationService {
     return JWT.create().withIssuer("auth0").withClaim("username", safeCredentials.getUsername()).sign(jwtAlgorithm);
   }
 
+  /**
+   * Verifies JWT token
+   * @param token The JWT token
+   * @return The investor's username, or null if the token couldn't be verified
+   */
   public String verify(String token) {
     try {
       String username = jwtVerifier.verify(token).getClaim("username").asString();
@@ -41,6 +51,11 @@ public class AuthenticationService {
     }
   }
 
+  /**
+   * Creates credentials in repository
+   * @param unsafeCredentials The credentials with insecure password
+   * @return True if the credentials were created, or false if they already exist
+   */
   public boolean createOne(UnsafeCredentials unsafeCredentials) {
     if (repository.existsById(unsafeCredentials.getUsername())) return false;
     String hashedPassword = BCrypt.hashpw(unsafeCredentials.getPassword(), BCrypt.gensalt());
@@ -48,6 +63,11 @@ public class AuthenticationService {
     return true;
   }
 
+  /**
+   * Updates credentials in repository
+   * @param unsafeCredentials The credentials with insecure password
+   * @return True if the credentials were updated, or false if they couldn't be found
+   */
   public boolean updateOne(UnsafeCredentials unsafeCredentials) {
     if (!repository.existsById(unsafeCredentials.getUsername())) return false;
     String hashedPassword = BCrypt.hashpw(unsafeCredentials.getPassword(), BCrypt.gensalt());
@@ -55,6 +75,11 @@ public class AuthenticationService {
     return true;
   }
 
+  /**
+   * Deletes credentials in repository
+   * @param username The investor's username
+   * @return True if the credentials were deleted, or false if they couldn't be found
+   */
   public boolean deleteOne(String username) {
     if (!repository.existsById(username)) return false;
     repository.deleteById(username);
