@@ -20,7 +20,7 @@ public class Order {
 
     @Column(updatable = false)
     private String owner;
-    @Column(updatable = false)
+    @Column(name = "order_timestamp", updatable = false)
     private int timestamp;
 
     @Column(updatable = false, nullable = false)
@@ -33,7 +33,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderSide side;
 
-    @Column(updatable = false, nullable = false)
+    @Column(name = "order_type", updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
     private OrderType type;
 
