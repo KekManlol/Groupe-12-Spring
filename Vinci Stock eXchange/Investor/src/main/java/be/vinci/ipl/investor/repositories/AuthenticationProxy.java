@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "authentication", url = "http://localhost:9003")
 public interface AuthenticationProxy {
   @PostMapping("/authentication/{username}")
-  boolean createOne(@PathVariable String username, @RequestBody UnsafeCrendential unsafeCrendential);
+  void createOne(@PathVariable String username, @RequestBody UnsafeCrendential unsafeCrendential);
 
   @DeleteMapping("/authentication/{username}")
-  boolean deleteOne(@PathVariable String username);
+  void deleteOne(@PathVariable String username);
 }

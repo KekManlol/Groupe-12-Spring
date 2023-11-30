@@ -1,7 +1,7 @@
 package be.vinci.ipl.wallet;
 
 import be.vinci.ipl.wallet.model.Position;
-import be.vinci.ipl.wallet.model.Wallet;
+import be.vinci.ipl.wallet.model.PositionWithUsername;
 import be.vinci.ipl.wallet.repositories.PriceProxy;
 import be.vinci.ipl.wallet.repositories.WalletRepository;
 import java.util.List;
@@ -18,20 +18,17 @@ public class WalletService {
     this.priceProxy = priceProxy;
   }
   public float getNetWorth(String username) {
-    List<Wallet> positions = repository.findByUsername(username);
-    int totalQuantity = positions.stream().mapToInt(Wallet::getQuantity).sum();
-    if (totalQuantity == 0) return -1;
-
+    List<PositionWithUsername> positions = repository.findByUsername(username);
+    if (positions == null || positions.isEmpty()) return 0;
     float netWorth = 0;
-    for (Wallet position : positions) {
+    for (PositionWithUsername position : positions) {
       netWorth += position.getQuantity() * priceProxy.getPriceByTicker(position.getTicker()).getPrice();
     }
     return netWorth;
   }
   public List<Position> getOpenPositions(String username) {
-    List<Wallet> positions = repository.findByUsername(username);
-    int totalQuantity = positions.stream().mapToInt(Wallet::getQuantity).sum();
-    if (totalQuantity == 0) return null;
+    List<PositionWithUsername> positions = repository.findByUsername(username);
+    if (positions == null || positions.isEmpty()) return null;
 
     return positions.stream()
         .map(wallet -> {
@@ -44,13 +41,12 @@ public class WalletService {
         .filter(position -> position.getQuantity() > 0)
         .collect(Collectors.toList());
   }
-
   public List<Position> addPositions(String username, List<Position> newPositions) {
-    List<Wallet> existingPositions = repository.findByUsername(username);
+    List<PositionWithUsername> existingPositions = repository.findByUsername(username);
     if (existingPositions == null) return null;
 
     for (Position position : newPositions) {
-      Wallet existingPosition = existingPositions.stream()
+      PositionWithUsername existingPosition = existingPositions.stream()
           .filter(p -> p.getTicker().equals(position.getTicker()))
           .findFirst()
           .orElse(null);
@@ -58,6 +54,7 @@ public class WalletService {
         existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
         repository.save(existingPosition);
       }
+
     }
     return getOpenPositions(username);
   }
