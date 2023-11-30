@@ -2,15 +2,8 @@ package be.vinci.ipl.wallet.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Size;
-import java.util.HashMap;
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +14,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity(name = "wallets")
-public class Wallet {
+public class PositionWithUsername {
 
   @Id
   @Column(unique = true)
