@@ -1,14 +1,14 @@
 
 ### Read one
-GET http://localhost:9001/investor/b
+GET http://localhost:9001/investor/bob
 
 ### Create one
-POST http://localhost:9001/investor/test2
+POST http://localhost:9001/investor/test3
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "test2",
+    "username": "test3",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",

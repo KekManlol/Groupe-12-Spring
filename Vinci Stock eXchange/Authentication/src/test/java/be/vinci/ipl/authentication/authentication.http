@@ -3,7 +3,7 @@ POST {{authentication_url}}/test
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "sdfsf",
   "password": "blablabla"
 }
 
