@@ -3,27 +3,37 @@ package be.vinci.ipl.gateway;
 import be.vinci.ipl.gateway.data.AuthenticationProxy;
 import be.vinci.ipl.gateway.data.InvestorsProxy;
 import be.vinci.ipl.gateway.data.OrderProxy;
+import be.vinci.ipl.gateway.data.WalletProxy;
 import be.vinci.ipl.gateway.exceptions.BadRequestException;
 import be.vinci.ipl.gateway.exceptions.ConflictException;
 import be.vinci.ipl.gateway.exceptions.NotFoundException;
 import be.vinci.ipl.gateway.exceptions.UnauthorizedException;
+import be.vinci.ipl.gateway.models.CashDTO;
 import be.vinci.ipl.gateway.models.Credentials;
 import be.vinci.ipl.gateway.models.InvestorData;
 import be.vinci.ipl.gateway.models.InvestorWithPassword;
 import be.vinci.ipl.gateway.models.Order;
+import be.vinci.ipl.gateway.models.Position;
+import be.vinci.ipl.gateway.models.QuantityDTO;
+import com.fasterxml.jackson.databind.util.ArrayIterator;
 import feign.FeignException;
 import feign.FeignException.Forbidden;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.StreamSupport;
 
 public class GatewayService {
   InvestorsProxy investorsProxy;
   AuthenticationProxy authenticationProxy;
   OrderProxy orderProxy;
+
+  WalletProxy walletProxy;
   public GatewayService(InvestorsProxy investorsProxy, AuthenticationProxy authenticationProxy,
-      OrderProxy orderProxy) {
+      OrderProxy orderProxy, WalletProxy walletProxy) {
     this.investorsProxy = investorsProxy;
     this.authenticationProxy = authenticationProxy;
     this.orderProxy = orderProxy;
-
+    this.walletProxy = walletProxy;
   }
   public InvestorData readInvestor(String username) throws UnauthorizedException, NotFoundException {
     try {
@@ -111,6 +121,56 @@ public class GatewayService {
       return authenticationProxy.verify(token);
     } catch (FeignException e) {
       if (e.status() == 401) return null;
+      else throw e;
+    }
+  }
+
+  public Iterable<Position> readAllOpenPositionsFromInvestor(String username)
+      throws NotFoundException {
+    try {
+      return walletProxy.readAllOpenPositionsFromInvestor(username);
+    } catch (FeignException e) {
+      if (e.status() == 404) throw new NotFoundException();
+      else throw e;
+    }
+
+  }
+
+  public Iterable<Position> addOrRemoveCashFromWallet(String username, CashDTO cashDTO) throws NotFoundException {
+    try {
+      Position cashPosition = new Position("CASH", 1, (int) cashDTO.getCash());
+      List<Position> positions = new ArrayList<>();
+      positions.add(cashPosition);
+      walletProxy.addPositions(username, positions);
+
+      return walletProxy.readAllOpenPositionsFromInvestor(username);
+    } catch (FeignException e) {
+      if (e.status() == 404) throw new NotFoundException();
+      else throw e;
+    }
+  }
+
+
+  public Float readWalletNetValueFromInvestor(String username) throws NotFoundException {
+    try {
+      return walletProxy.readWalletNetValueFromInvestor(username);
+    } catch (FeignException e) {
+      if (e.status() == 404) throw new NotFoundException();
+      else throw e;
+    }
+  }
+
+  public Iterable<Position> addOrRemoveTickerQuantityFromWallet(String username, String ticker,
+      QuantityDTO quantityDTO) throws NotFoundException {
+    try {
+      Position position = new Position(ticker, 1, (int) quantityDTO.getQuantity() );
+      List<Position> positions = new ArrayList<>();
+      positions.add(position);
+      walletProxy.addPositions(username, positions);
+
+      return walletProxy.readAllOpenPositionsFromInvestor(username);
+    } catch (FeignException e) {
+      if (e.status() == 404) throw new NotFoundException();
       else throw e;
     }
   }

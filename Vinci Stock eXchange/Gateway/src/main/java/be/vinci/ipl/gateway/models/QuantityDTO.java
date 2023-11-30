@@ -1,0 +1,14 @@
+package be.vinci.ipl.gateway.models;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class QuantityDTO {
+  private float quantity;
+}
