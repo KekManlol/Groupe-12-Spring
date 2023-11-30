@@ -27,10 +27,9 @@ public class ExecutionController {
    * @param transaction the transaction to execute.
    * @return an empty ResponseEntity.
    */
-  @PostMapping("/transaction/{ticker}/{seller}/{buyer}")
+  @PostMapping("/execute/{ticker}/{seller}/{buyer}")
   public ResponseEntity<Void> createOne(@PathVariable String ticker, @PathVariable String buyer,
-      @PathVariable String seller, @RequestBody
-  Transaction transaction) {
+      @PathVariable String seller, @RequestBody Transaction transaction) {
     if (!Objects.equals(transaction.getTicker(), ticker) || !Objects.equals(transaction.getBuyer(),
         buyer) || !Objects.equals(transaction.getSeller(), seller)) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
