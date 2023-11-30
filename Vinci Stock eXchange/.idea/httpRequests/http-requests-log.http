@@ -1,3 +1,78 @@
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-30T215540.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-30T215536.200.json
+
+###
+
+POST http://localhost:9005/wallet/test2
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-30T215443.500.json
+
+###
+
 POST http://localhost:9003/authentication/connect
 Content-Type: application/json
 Content-Length: 51
@@ -614,42 +689,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
   "side": "SELL",
-  "filled": 3
-}
-
-###
-
-GET http://localhost:9002/order/5073c3b8-4ff0-4169-95cc-14ba61a5b4a6
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T122157.200.json
-
-###
-
-PATCH http://localhost:9002/order/5073c3b8-4ff0-4169-95cc-14ba61a5b4a6
-Content-Type: application/json
-Content-Length: 35
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "side": "SELL",
-  "filled": 2
-}
-
-###
-
-PATCH http://localhost:9002/order/1ea201e5-af1b-43a4-8499-9458cf27c6a1
-Content-Type: application/json
-Content-Length: 17
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
   "filled": 3
 }
 
