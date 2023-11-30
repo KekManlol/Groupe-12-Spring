@@ -15,7 +15,7 @@ public class Order {
 
     private String owner;
 
-    private String timestamp;
+    private int timestamp;
 
     private String ticker;
 
