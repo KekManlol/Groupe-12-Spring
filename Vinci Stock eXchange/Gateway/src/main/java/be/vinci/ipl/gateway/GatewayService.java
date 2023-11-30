@@ -23,7 +23,9 @@ import feign.FeignException.Forbidden;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.StreamSupport;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GatewayService {
   InvestorsProxy investorsProxy;
   AuthenticationProxy authenticationProxy;
@@ -36,13 +38,13 @@ public class GatewayService {
     this.authenticationProxy = authenticationProxy;
     this.orderProxy = orderProxy;
     this.walletProxy = walletProxy;
+    this.priceProxy = priceProxy;
   }
-  public InvestorData readInvestor(String username) throws UnauthorizedException, NotFoundException {
+  public InvestorData readInvestor(String username) throws NotFoundException {
     try {
       return investorsProxy.readInvestor(username);
     } catch (FeignException e) {
-      if (e.status() == 400) throw new UnauthorizedException();
-      else if (e.status() == 404) throw new NotFoundException();
+      if (e.status() == 404) throw new NotFoundException();
       else throw e;
     }
   }

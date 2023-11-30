@@ -1,2 +1,17 @@
 ### Read investor
-GET http://localhost8080/investor/{username}
+GET http://localhost:8080/investor/bob
+
+### Create investor
+POST http://localhost:8080/investor/david
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "david",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}

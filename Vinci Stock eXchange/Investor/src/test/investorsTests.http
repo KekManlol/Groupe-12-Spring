@@ -33,7 +33,7 @@ Content-Type: application/json
 GET http://localhost:9001/investor/patrick
 
 ### Create one with unmatched usernames
-POST http://localhost:9001/investor/bob
+POST http://localhost:9001/investor/sdfsdf
 Content-Type: application/json
 
 {
@@ -52,7 +52,7 @@ Content-Type: application/json
 
 {
   "investorData": {
-    "username": "bob",
+    "username": "sdfsdf",
     "email": "",
     "firstname": "Bob",
     "lastname": "Eponge",
