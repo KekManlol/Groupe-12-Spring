@@ -49,7 +49,7 @@ public class Transaction {
 
 
   /**
-   * @return true if the transaction is not valid, false if it is considered valid.
+   * @return checks if the transaction is invalid, returns true if it is the case or false if not.
    */
   public boolean invalid(){
     return ticker == null || ticker.isBlank() ||

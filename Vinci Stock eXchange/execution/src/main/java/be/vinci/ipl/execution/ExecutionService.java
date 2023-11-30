@@ -48,7 +48,7 @@ public class ExecutionService {
    * @param ticker the ticker's identifier.
    * @param newPrice the ticker's new price.
    */
-  public void updatePrice(String ticker, int newPrice){
+  public void updatePrice(String ticker, float newPrice){
     priceProxy.updateOne(ticker, String.valueOf(newPrice));
   }
 

@@ -59,8 +59,7 @@ public class ExecutionController {
     service.updateWallet(buyer, positionTickerBuyer);
 
     // Step 5 : indicate to price service the last price of ticker
-    int newPrice = (int) transaction.getPrice();
-    service.updatePrice(ticker, newPrice);
+    service.updatePrice(ticker, transaction.getPrice());
 
     // Step 6 : update seller order status
     Order sellerOrder = service.getOrder(transaction.getSell_order_guid());
