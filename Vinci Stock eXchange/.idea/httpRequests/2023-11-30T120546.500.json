@@ -1,0 +1,6 @@
+{
+  "timestamp": "2023-11-30T11:05:46.927+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/trigger/AAPL"
+}
