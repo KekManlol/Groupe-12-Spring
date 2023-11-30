@@ -63,12 +63,12 @@ public class ExecutionController {
     service.updatePrice(ticker, newPrice);
 
     // Step 6 : update seller order status
-    Order sellerOrder = service.getOrder(transaction.getGUIDSellingOrder());
+    Order sellerOrder = service.getOrder(transaction.getSell_order_guid());
     sellerOrder.setFilled(sellerOrder.getFilled() - transaction.getQuantity());
     service.updateOrder(sellerOrder);
 
     // Step 7 : update buyer order status
-    Order buyerOrder = service.getOrder(transaction.getGUIDBuyingOrder());
+    Order buyerOrder = service.getOrder(transaction.getBuy_order_guid());
     buyerOrder.setFilled(buyerOrder.getFilled() - transaction.getQuantity());
     service.updateOrder(buyerOrder);
 

@@ -1,5 +1,5 @@
 ### Test execution
-POST http://localhost:9007/execution/AAPL/picsous/cresus
+POST http://localhost:9007/execute/AAPL/picsous/cresus
 Content-Type: application/json
 
 {

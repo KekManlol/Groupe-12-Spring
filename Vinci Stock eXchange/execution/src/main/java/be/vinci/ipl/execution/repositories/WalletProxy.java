@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name="wallet")
 public interface WalletProxy {
 
-  @PostMapping("/wallets/{username}")
+  @PostMapping("/wallet/{username}")
    void updateOne(@PathVariable String username, @RequestBody Position position);
 
 }
