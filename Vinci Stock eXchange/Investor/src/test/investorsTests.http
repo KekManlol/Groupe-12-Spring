@@ -85,14 +85,12 @@ Content-Type: application/json
   "birthday": "2000-01-01"
 }
 
-### Delete one
+### Delete one / Delete one but The investor's situation does not allow (test with wallet)
 DELETE http://localhost:9001/investor/test2
 
 ### Delete one with unknown credentials
 DELETE http://localhost:9001/investor/test3
 
-### Delete one but The investor's situation does not allow
-DELETE http://localhost:9001/investor/test3
 
 
 
