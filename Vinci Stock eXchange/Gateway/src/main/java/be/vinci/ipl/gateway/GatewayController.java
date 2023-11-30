@@ -1,13 +1,17 @@
 package be.vinci.ipl.gateway;
 
 import be.vinci.ipl.gateway.exceptions.BadRequestException;
+import be.vinci.ipl.gateway.exceptions.ConflictException;
 import be.vinci.ipl.gateway.exceptions.NotFoundException;
 import be.vinci.ipl.gateway.exceptions.UnauthorizedException;
 import be.vinci.ipl.gateway.models.Credentials;
 import be.vinci.ipl.gateway.models.InvestorData;
+import be.vinci.ipl.gateway.models.InvestorWithPassword;
+import be.vinci.ipl.gateway.models.Order;
 import java.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,11 +37,45 @@ public class GatewayController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }
-  /*
-  @PutMapping("/investor/{username}")
-  public ResponseEntity
 
-   */
+  @PostMapping("/investor/{username}")
+  public ResponseEntity<Void> createInvestor(@PathVariable String username,
+      @RequestBody InvestorWithPassword investorWithPassword) {
+    try {
+      service.createInvestor(username, investorWithPassword);
+      return new ResponseEntity<>(HttpStatus.CREATED);
+    } catch (BadRequestException e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    } catch (ConflictException e) {
+      return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
+  }
+
+  @PutMapping("/investor/{username}")
+  public ResponseEntity<Void> updateInvestor(@PathVariable String username,
+      @RequestBody InvestorData investorData) {
+    try {
+      service.updateInvestor(username, investorData);
+      return new ResponseEntity<>(HttpStatus.OK);
+    } catch (BadRequestException e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @DeleteMapping("/investor/{username}")
+  public ResponseEntity<Void> deleteInvestor(@PathVariable String username) {
+    try {
+      service.deleteInvestor(username);
+      return new ResponseEntity<>(HttpStatus.OK);
+    } catch (BadRequestException e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
 
 
 
@@ -53,15 +91,46 @@ public class GatewayController {
     }
   }
 
-  /*
+
   @PutMapping("/authentication/{username}")
   public ResponseEntity<Void> updateCredentials(@PathVariable String username,
       @RequestBody Credentials credentials, @RequestHeader("Authorization") String token) {
 
-    if (!Objects.equals(username, credentials.getUsername())) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-    service.updateCredentials(credentials);
+    try {
+      service.updateCredentials(username, credentials);
+      return new ResponseEntity<>(HttpStatus.OK);
+    } catch (BadRequestException e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
   }
-  */
+
+  @PostMapping("/order")
+  public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+    try {
+      Order createdOrder = service.createOrder(order);
+      return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
+    } catch (BadRequestException e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @GetMapping("/order/by-user/{username}")
+  public ResponseEntity<Iterable<Order>> readAllOrdersFromUser(@PathVariable String username,
+      @RequestHeader("Authorization") String token) {
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+    try {
+      Iterable<Order> orders = service.readAllOrdersFromUser(username);
+      return new ResponseEntity<>(orders, HttpStatus.OK);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
+
 
 }

@@ -1,16 +1,16 @@
-package be.vinci.ipl.orders;
+package be.vinci.ipl.order;
 
-import be.vinci.ipl.orders.models.Order;
-import be.vinci.ipl.orders.models.OrderSide;
+import be.vinci.ipl.order.models.Order;
+import be.vinci.ipl.order.models.OrderSide;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.StreamSupport;
 
 @Service
-public class OrdersService {
-    private final OrdersRepository repository;
+public class OrderService {
+    private final OrderRepository repository;
 
-    public OrdersService(OrdersRepository repository) {
+    public OrderService(OrderRepository repository) {
         this.repository = repository;
     }
 
