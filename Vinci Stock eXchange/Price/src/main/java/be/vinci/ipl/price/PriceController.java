@@ -31,7 +31,7 @@ public class PriceController {
 
   /**
    * @param ticker the ticker's identifier.
-   * @param priceString the new price to update.
+   * @param newPrice the new price of the ticker.
    * @return a ResponseEntity containing the updated price.
    */
   @PatchMapping("/price/{ticker}")

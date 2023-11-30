@@ -50,6 +50,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-hc5 -->
+		<dependency>
+			<artifactId>feign-hc5</artifactId>
+			<groupId>io.github.openfeign</groupId>
+			<version>13.1</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

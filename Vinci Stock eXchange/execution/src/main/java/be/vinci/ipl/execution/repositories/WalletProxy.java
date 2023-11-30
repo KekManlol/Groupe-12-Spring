@@ -1,6 +1,7 @@
 package be.vinci.ipl.execution.repositories;
 
 import be.vinci.ipl.execution.models.Position;
+import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface WalletProxy {
 
   @PostMapping("/wallet/{username}")
-   void updateOne(@PathVariable String username, @RequestBody Position position);
+   void updateOne(@PathVariable String username, @RequestBody List<Position> positions);
 
 }
