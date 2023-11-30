@@ -2,10 +2,10 @@
 GET http://localhost:9005/wallet/bob/net-worth
 
 ### Read All by username
-GET http://localhost:9005/wallet/bob
+GET http://localhost:9005/wallet/test2
 
 ### Add Position(s) by username
-POST http://localhost:9005/wallet/bob
+POST http://localhost:9005/wallet/test2
 Content-Type: application/json
 
 [
