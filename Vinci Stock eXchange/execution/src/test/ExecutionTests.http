@@ -1,0 +1,13 @@
+### Test execution
+POST http://localhost:9007/execution/AAPL/picsous/cresus
+Content-Type: application/json
+
+{
+  "ticker": "AAPL",
+  "seller": "picsous",
+  "buyer": "cresus",
+  "buy_order_guid": "6B29FC40-CA47-1067-B31D-00DD010662DA",
+  "sell_order_guid": "550e8400-e29b-41d4-a716-446655440000",
+  "quantity": 10,
+  "price": 100
+}

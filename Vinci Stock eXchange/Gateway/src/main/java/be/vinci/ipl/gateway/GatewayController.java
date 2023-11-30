@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class GatewayController {
   private GatewayService service;
 
@@ -34,8 +36,6 @@ public class GatewayController {
     try {
       InvestorData investor = service.readInvestor(username);
       return new ResponseEntity<>(investor, HttpStatus.OK);
-    } catch (UnauthorizedException e) {
-      return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     } catch (NotFoundException e) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
