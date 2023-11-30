@@ -1,14 +1,14 @@
 
 ### Read one
-GET http://localhost:9001/investor/bob
+GET http://localhost:9001/investor/b
 
 ### Create one
-POST http://localhost:9001/investor/bob
+POST http://localhost:9001/investor/test2
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "bob",
+    "username": "test2",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -22,11 +22,11 @@ PUT http://localhost:9001/investor/bob
 Content-Type: application/json
 
 {
-    "username": "bob",
-    "email": "bob.eponge@gmail.com",
-    "firstname": "Bob",
-    "lastname": "Eponge",
-    "birthday": "2000-01-01"
+  "username": "bob",
+  "email": "bob.eponge@gmail.com",
+  "firstname": "Bob",
+  "lastname": "Eponge",
+  "birthday": "2000-01-01"
 }
 
 ### Read one investor not found
@@ -86,9 +86,11 @@ Content-Type: application/json
 }
 
 ### Delete one
-DELETE http://localhost:9001/investor/bob
+DELETE http://localhost:9001/investor/test2
 
-### Delete one
-DELETE http://localhost:9001/investor/test
+### Delete one with unknown credentials
+DELETE http://localhost:9001/investor/test3
+
+
 
 
