@@ -84,3 +84,11 @@ Content-Type: application/json
   "lastname": "Eponge",
   "birthday": "2000-01-01"
 }
+
+### Delete one
+DELETE http://localhost:9001/investor/bob
+
+### Delete one
+DELETE http://localhost:9001/investor/test
+
+
