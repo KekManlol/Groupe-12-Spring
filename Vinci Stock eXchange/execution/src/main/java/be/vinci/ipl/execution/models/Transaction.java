@@ -1,6 +1,9 @@
 package be.vinci.ipl.execution.models;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,10 +36,10 @@ public class Transaction {
   private String buyer;
 
   @Column(nullable = false)
-  private String GUIDSellingOrder;
+  private String sell_order_guid;
 
   @Column(nullable = false)
-  private String GUIDBuyingOrder;
+  private String buy_order_guid;
 
   @Column(nullable = false)
   private int quantity;
@@ -45,12 +48,15 @@ public class Transaction {
   private float price;
 
 
+  /**
+   * @return true if the transaction is not valid, false if it is considered valid.
+   */
   public boolean invalid(){
     return ticker == null || ticker.isBlank() ||
         buyer == null || buyer.isBlank() ||
         seller == null || seller.isBlank() ||
-        GUIDSellingOrder == null || GUIDSellingOrder.isBlank() ||
-        GUIDBuyingOrder == null || GUIDBuyingOrder.isBlank() ||
+        sell_order_guid == null || sell_order_guid.isBlank() ||
+        buy_order_guid == null || buy_order_guid.isBlank() ||
         quantity <= 0 ||
         price <= 0;
   }
