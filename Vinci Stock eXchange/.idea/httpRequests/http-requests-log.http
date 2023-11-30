@@ -3,6 +3,24 @@ Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
+<> 2023-11-30T221023.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220919.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
 <> 2023-11-30T220403.500.json
 
 ###
@@ -687,37 +705,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   },
   "password": "Patrick"
 }
-
-###
-
-GET http://localhost:8080/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T202124.200.json
-
-###
-
-POST http://localhost:8080/investor/david
-Content-Type: application/json
-Content-Length: 184
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "investorData": {
-    "username": "bob",
-    "email": "bob@gmail.com",
-    "firstname": "Bob",
-    "lastname": "Eponge",
-    "birthday": "2000-01-01"
-  },
-  "password": "Patrick"
-}
-
-<> 2023-11-30T201442.404.json
 
 ###
 
