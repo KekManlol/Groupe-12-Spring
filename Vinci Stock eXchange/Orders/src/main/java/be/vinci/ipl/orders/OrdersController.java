@@ -39,7 +39,7 @@ public class OrdersController {
     }
 
     @PatchMapping("/order/{guid}")
-    public ResponseEntity<Order> updateSharesQuantity(@PathVariable String guid, @RequestBody
+    public ResponseEntity<Void> updateSharesQuantity(@PathVariable String guid, @RequestBody
         PatchDTO patchDTO) {
         boolean updated = ordersService.updateSharesQuantity(guid, patchDTO.getFilled());
 

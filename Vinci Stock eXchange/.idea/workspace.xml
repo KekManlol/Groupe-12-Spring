@@ -5,17 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dad184b6-ff01-4af4-9b96-49f8e1f9a4ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/data/AuthenticationProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/data/InvestorsProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/exceptions/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/exceptions/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/models/Credentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/models/InvestorData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/models/InvestorWithPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matching/src/main/java/be/vinci/ipl/matching/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matching/src/main/java/be/vinci/ipl/matching/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/gateway.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/java/be/vinci/ipl/gateway/GatewayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gateway/src/test/java/be/vinci/ipl/gateway/GatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/test/java/be/vinci/ipl/gateway/GatewayApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/OrdersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/OrderSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/OrderSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/OrderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/main/java/be/vinci/ipl/orders/models/OrderType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orders/src/test/java/be/vinci/ipl/orders/orderstest.http" beforeDir="false" afterPath="$PROJECT_DIR$/Orders/src/test/java/be/vinci/ipl/orders/orderstest.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,33 +58,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/tqueg/Documents/Cours/Spring/Groupe-12-Spring/Vinci Stock eXchange/.idea",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "eebe5da2c045ab2c995281a78f90a3f6",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Users/Denis/Documents/Cours vinci/Bloc 3/Spring/spring-examples/Groupe-12-Spring/Vinci Stock eXchange/Gateway&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;eebe5da2c045ab2c995281a78f90a3f6&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Users\Denis\Documents\Cours vinci\Bloc 3\Spring\spring-examples\Groupe-12-Spring\Vinci Stock eXchange\Gateway" />
       <recent name="C:\Users\tqueg\Documents\Cours\Spring\Groupe-12-Spring\Vinci Stock eXchange\.idea" />
       <recent name="C:\Users\keman\Desktop\3BIN\Spring\Groupe-12-Spring\Vinci Stock eXchange\Matching\src\main\java\be\vinci\ipl\matching\models" />
     </key>
@@ -120,6 +131,13 @@
     <configuration name="ExecutionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="execution" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.execution.ExecutionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="be.vinci.ipl.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,7 +197,7 @@
       <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
       <option name="jdkPath" value="" />
       <option name="language" value="java" />
-      <option name="specificationPath" value="G:\Users\Denis\Documents\Cours vinci\Bloc 3\Spring\spring-examples\Groupe-12-Spring\Vinci Stock eXchange\Orders\Groupe12_documentation_service_account.yaml" />
+      <option name="specificationPath" value="G:\Users\Denis\Documents\Cours vinci\Bloc 3\Spring\spring-examples\Groupe-12-Spring\Vinci Stock eXchange\Gateway\gateway.yml" />
       <method v="2" />
     </configuration>
     <list>
@@ -188,6 +206,7 @@
       <item itemvalue="HTTP Request.orderstest | Create 4th order" />
       <item itemvalue="HTTP Request.orderstest | Create 5th order" />
       <item itemvalue="HTTP Request.orderstest | Read all open order of a ticker of a side" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.AuthenticationApplication" />
       <item itemvalue="Spring Boot.MatchingApplication" />
       <item itemvalue="Spring Boot.MatchingApplication (1)" />
@@ -223,7 +242,8 @@
       <workItem from="1701277201668" duration="4884000" />
       <workItem from="1701294210718" duration="183000" />
       <workItem from="1701297427344" duration="2543000" />
-      <workItem from="1701300055068" duration="4350000" />
+      <workItem from="1701300055068" duration="9548000" />
+      <workItem from="1701340769117" duration="809000" />
     </task>
     <servers />
   </component>

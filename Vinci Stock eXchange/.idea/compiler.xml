@@ -13,6 +13,7 @@
         <module name="Price" />
         <module name="Authentication" />
         <module name="Wallet" />
+        <module name="Gateway" />
         <module name="Investor" />
         <module name="Eureka" />
         <module name="Accounts" />
@@ -27,6 +28,7 @@
       <module name="Accounts" options="-parameters" />
       <module name="Authentication" options="-parameters" />
       <module name="Eureka" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
       <module name="Investor" options="-parameters" />
       <module name="Matching" options="-parameters" />
       <module name="Orders" options="-parameters" />
