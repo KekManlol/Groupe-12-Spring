@@ -1,3 +1,107 @@
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220403.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220352.500.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-30T220349.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220243.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220240.200.json
+
+###
+
+POST http://localhost:9005/wallet/bob
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-11-30T220203.200.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T220129.500.json
+
+###
+
+GET http://localhost:9005/wallet/bob/net-worth
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T215856.500.json
+
+###
+
 POST http://localhost:9005/wallet/bob
 Content-Type: application/json
 Content-Length: 144
@@ -614,83 +718,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-11-30T201442.404.json
-
-###
-
-GET http://localhost:8080/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T201136.404.json
-
-###
-
-GET http://localhost:8080/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T200423.404.json
-
-###
-
-GET http://localhost:9001/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T200041.200.json
-
-###
-
-GET http://localhost:8080/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T195410.404.json
-
-###
-
-GET http://localhost:9001/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T195231.200.json
-
-###
-
-GET http://localhost:8080/investor/bob
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T195217.404.json
-
-###
-
-GET http://localhost:9002/order/5073c3b8-4ff0-4169-95cc-14ba61a5b4a6
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-30T122436.200.json
-
-###
-
-PATCH http://localhost:9002/order/5073c3b8-4ff0-4169-95cc-14ba61a5b4a6
-Content-Type: application/json
-Content-Length: 35
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "side": "SELL",
-  "filled": 3
-}
 
 ###
 
