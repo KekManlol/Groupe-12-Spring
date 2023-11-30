@@ -18,6 +18,10 @@ public class MatchingService {
     this.orderProxy = orderProxy;
   }
 
+  /**
+   * Tries to find matches from orders based on the ticker
+   * @param ticker The financial instrument's identifier
+   */
   public void findMatches(String ticker) {
 
     Iterable<Order> sellOrders = orderProxy.findOrdersByTicker(ticker, "SELL");
