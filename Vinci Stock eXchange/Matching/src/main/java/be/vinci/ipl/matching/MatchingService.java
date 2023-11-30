@@ -1,7 +1,7 @@
 package be.vinci.ipl.matching;
 
 import be.vinci.ipl.matching.data.ExecutionProxy;
-import be.vinci.ipl.matching.data.OrdersProxy;
+import be.vinci.ipl.matching.data.OrderProxy;
 import be.vinci.ipl.matching.models.Order;
 import be.vinci.ipl.matching.models.PatchDTO;
 import be.vinci.ipl.matching.models.Transaction;
@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service;
 public class MatchingService {
 
   private ExecutionProxy executionProxy;
-  private OrdersProxy ordersProxy;
+  private OrderProxy orderProxy;
 
-  public MatchingService(ExecutionProxy executionProxy, OrdersProxy ordersProxy){
+  public MatchingService(ExecutionProxy executionProxy, OrderProxy orderProxy){
     this.executionProxy = executionProxy;
-    this.ordersProxy = ordersProxy;
+    this.orderProxy = orderProxy;
   }
 
   public void findMatches(String ticker) {
 
-    Iterable<Order> sellOrders = ordersProxy.findOrdersByTicker(ticker, "SELL");
-    Iterable<Order> buyOrders = ordersProxy.findOrdersByTicker(ticker, "BUY");
+    Iterable<Order> sellOrders = orderProxy.findOrdersByTicker(ticker, "SELL");
+    Iterable<Order> buyOrders = orderProxy.findOrdersByTicker(ticker, "BUY");
 
     Order chosenSellOrder = null;
     Order chosenBuyOrder = null;
@@ -51,8 +51,8 @@ public class MatchingService {
       PatchDTO patchDTOSell = new PatchDTO(chosenSellOrder.getFilled() + titleQuantity);
       PatchDTO patchDTOBuy = new PatchDTO(chosenBuyOrder.getFilled() + titleQuantity);
 
-      ordersProxy.updateOrderQuantity(chosenSellOrder.getGuid(), patchDTOSell);
-      ordersProxy.updateOrderQuantity(chosenBuyOrder.getGuid(), patchDTOBuy);
+      orderProxy.updateOrderQuantity(chosenSellOrder.getGuid(), patchDTOSell);
+      orderProxy.updateOrderQuantity(chosenBuyOrder.getGuid(), patchDTOBuy);
     }
   }
 }
