@@ -3,6 +3,7 @@ package be.vinci.ipl.matching;
 import be.vinci.ipl.matching.data.ExecutionProxy;
 import be.vinci.ipl.matching.data.OrdersProxy;
 import be.vinci.ipl.matching.models.Order;
+import be.vinci.ipl.matching.models.PatchDTO;
 import be.vinci.ipl.matching.models.Transaction;
 import org.springframework.stereotype.Service;
 
@@ -37,10 +38,16 @@ public class MatchingService {
     }
 
     if (chosenSellOrder != null){
+
       Transaction transaction = new Transaction(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(),
               chosenSellOrder.getGuid(), chosenBuyOrder.getGuid(), 0,0);
 
       executionProxy.executeOrder(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(), transaction);
+      int remainingTitles = chosenBuyOrder.getQuantity() - chosenSellOrder.getQuantity();
+      if (remainingTitles >= 0){
+        PatchDTO patchDTO = new PatchDTO(remainingTitles);
+        ordersProxy.updateOrderQuantity(chosenBuyOrder.getGuid(), patchDTO);
+      }
     }
   }
 }

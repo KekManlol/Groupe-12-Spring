@@ -1,6 +1,7 @@
 package be.vinci.ipl.matching.data;
 
 import be.vinci.ipl.matching.models.Order;
+import be.vinci.ipl.matching.models.PatchDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,5 +17,5 @@ public interface OrdersProxy {
   Iterable<Order> findOrdersByTicker(@PathVariable String ticker, @PathVariable String side);
 
   @PatchMapping("/order/{guid}")
-  boolean updateOrderQuantity(@PathVariable String guid, @RequestBody Order order);
+  boolean updateOrderQuantity(@PathVariable String guid, @RequestBody PatchDTO patchDTO);
 }

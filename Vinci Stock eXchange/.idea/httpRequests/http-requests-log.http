@@ -1,3 +1,13 @@
+POST http://localhost:9006/trigger/AAPL
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-30T120546.500.json
+
+###
+
 POST http://localhost:9003/authentication/verify
 Content-Type: text/plain
 Content-Length: 168
