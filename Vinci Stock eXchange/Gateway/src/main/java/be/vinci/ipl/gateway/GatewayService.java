@@ -3,6 +3,7 @@ package be.vinci.ipl.gateway;
 import be.vinci.ipl.gateway.data.AuthenticationProxy;
 import be.vinci.ipl.gateway.data.InvestorsProxy;
 import be.vinci.ipl.gateway.data.OrderProxy;
+import be.vinci.ipl.gateway.data.PriceProxy;
 import be.vinci.ipl.gateway.data.WalletProxy;
 import be.vinci.ipl.gateway.exceptions.BadRequestException;
 import be.vinci.ipl.gateway.exceptions.ConflictException;
@@ -14,6 +15,7 @@ import be.vinci.ipl.gateway.models.InvestorData;
 import be.vinci.ipl.gateway.models.InvestorWithPassword;
 import be.vinci.ipl.gateway.models.Order;
 import be.vinci.ipl.gateway.models.Position;
+import be.vinci.ipl.gateway.models.Price;
 import be.vinci.ipl.gateway.models.QuantityDTO;
 import com.fasterxml.jackson.databind.util.ArrayIterator;
 import feign.FeignException;
@@ -26,10 +28,10 @@ public class GatewayService {
   InvestorsProxy investorsProxy;
   AuthenticationProxy authenticationProxy;
   OrderProxy orderProxy;
-
+  PriceProxy priceProxy;
   WalletProxy walletProxy;
   public GatewayService(InvestorsProxy investorsProxy, AuthenticationProxy authenticationProxy,
-      OrderProxy orderProxy, WalletProxy walletProxy) {
+      OrderProxy orderProxy, WalletProxy walletProxy, PriceProxy priceProxy) {
     this.investorsProxy = investorsProxy;
     this.authenticationProxy = authenticationProxy;
     this.orderProxy = orderProxy;
@@ -163,7 +165,8 @@ public class GatewayService {
   public Iterable<Position> addOrRemoveTickerQuantityFromWallet(String username, String ticker,
       QuantityDTO quantityDTO) throws NotFoundException {
     try {
-      Position position = new Position(ticker, 1, (int) quantityDTO.getQuantity() );
+      Price currentPrice = priceProxy.readPrice(ticker);
+      Position position = new Position(ticker, currentPrice.getPrice(), (int) quantityDTO.getQuantity());
       List<Position> positions = new ArrayList<>();
       positions.add(position);
       walletProxy.addPositions(username, positions);
