@@ -1,0 +1,1 @@
+INSERT INTO credentials(username, password) VALUES ('test1', '$2a$10$1QkT1HMcUIZJIz.QwC4oj.mbTSxL5lBlWzfclosj1BGXC31sLiY1G')
