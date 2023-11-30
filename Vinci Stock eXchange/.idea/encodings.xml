@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/Gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Investor/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Matching/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Matching/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Orders/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Price/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Wallet/src/main/java" charset="UTF-8" />

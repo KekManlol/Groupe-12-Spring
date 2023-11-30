@@ -26,31 +26,31 @@ public class InvestorController {
     else return new ResponseEntity<>(investorData, HttpStatus.OK);
   }
   @PostMapping("/investor/{username}")
-  public ResponseEntity<InvestorData> createOne(@PathVariable String username, @RequestBody
+  public ResponseEntity<Void> createOne(@PathVariable String username, @RequestBody
       InvestorWithPassword investorWithPassword){
     if (!Objects.equals(investorWithPassword.getInvestorData().getUsername(), username)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     if (investorWithPassword.invalid()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     boolean created = service.createOne(investorWithPassword);
     if (!created) return new ResponseEntity<>(HttpStatus.CONFLICT);
-   return new ResponseEntity<>(investorWithPassword.getInvestorData(), HttpStatus.OK);
+   return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PutMapping("/investor/{username}")
-  public ResponseEntity<InvestorData> updateOne(@PathVariable String username, @RequestBody InvestorData investorData) {
+  public ResponseEntity<Void> updateOne(@PathVariable String username, @RequestBody InvestorData investorData) {
     if (!Objects.equals(investorData.getUsername(), username)) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     if (investorData.invalid()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
     boolean found = service.updateOne(investorData);
 
     if (!found) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    else return new ResponseEntity<>(investorData, HttpStatus.OK);
+    else return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @DeleteMapping("/investor/{username}")
-  public ResponseEntity<InvestorData> deleteOne(@PathVariable String username) {
-    boolean found = service.deleteOne(username);
-
-    if (!found) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  public ResponseEntity<Void> deleteOne(@PathVariable String username) {
+    int found = service.deleteOne(username);
+    if (found == -2) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    if (found == -1) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     else return new ResponseEntity<>(HttpStatus.OK);
   }
 }

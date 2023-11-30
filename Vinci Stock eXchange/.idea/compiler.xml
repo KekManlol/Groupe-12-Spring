@@ -21,6 +21,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Accounts" target="17" />
+      <module name="Gateway" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -30,7 +31,7 @@
       <module name="Eureka" options="-parameters" />
       <module name="Gateway" options="-parameters" />
       <module name="Investor" options="-parameters" />
-      <module name="Matching" options="-parameters" />
+      <module name="Matching" options="" />
       <module name="Orders" options="-parameters" />
       <module name="Price" options="-parameters" />
       <module name="Wallet" options="-parameters" />
