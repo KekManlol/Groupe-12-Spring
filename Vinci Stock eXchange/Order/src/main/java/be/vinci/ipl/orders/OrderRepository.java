@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface OrdersRepository extends CrudRepository<Order, Integer> {
+public interface OrderRepository extends CrudRepository<Order, Integer> {
     Optional<Order> findByGuid(String guid);
 
     Iterable<Order> findByOwner(String username);

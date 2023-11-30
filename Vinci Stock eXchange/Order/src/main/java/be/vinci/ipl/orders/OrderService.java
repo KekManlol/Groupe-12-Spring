@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.stream.StreamSupport;
 
 @Service
-public class OrdersService {
-    private final OrdersRepository repository;
+public class OrderService {
+    private final OrderRepository repository;
 
-    public OrdersService(OrdersRepository repository) {
+    public OrderService(OrderRepository repository) {
         this.repository = repository;
     }
 

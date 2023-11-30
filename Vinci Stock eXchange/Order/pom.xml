@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.vinci.ipl</groupId>
-    <artifactId>Orders</artifactId>
+    <artifactId>Order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Orders</name>
     <description>Orders</description>
