@@ -32,7 +32,13 @@ public class GatewayController {
   }
 
   @GetMapping("/investor/{username}")
-  public ResponseEntity<InvestorData> readInvestor(@PathVariable String username) {
+  public ResponseEntity<InvestorData> readInvestor(
+      @PathVariable String username,
+      @RequestHeader("Authorization") String token) {
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
     try {
       InvestorData investor = service.readInvestor(username);
       return new ResponseEntity<>(investor, HttpStatus.OK);

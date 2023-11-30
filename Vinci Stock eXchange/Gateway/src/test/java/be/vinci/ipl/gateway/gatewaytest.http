@@ -1,5 +1,18 @@
+### Connect user
+POST http://localhost:8080/authentication/connect
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "blablabla"
+}
+
+> {% client.global.set("token", response.body) %}
+
+
 ### Read investor
 GET http://localhost:8080/investor/bob
+Authorization: {{token}}
 
 ### Create investor
 POST http://localhost:8080/investor/david
@@ -15,3 +28,4 @@ Content-Type: application/json
   },
   "password": "Patrick"
 }
+

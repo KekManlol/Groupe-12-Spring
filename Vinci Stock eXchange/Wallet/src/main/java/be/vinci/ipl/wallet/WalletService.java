@@ -5,8 +5,10 @@ import be.vinci.ipl.wallet.model.PositionWithUsername;
 import be.vinci.ipl.wallet.repositories.InvestorProxy;
 import be.vinci.ipl.wallet.repositories.PriceProxy;
 import be.vinci.ipl.wallet.repositories.WalletRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +24,7 @@ public class WalletService {
     this.investorProxy = investorProxy;
   }
   public float getNetWorth(String username) {
-    List<PositionWithUsername> positions = repository.findByUsername(username);
+    Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return -1;
     float netWorth = 0;
     for (PositionWithUsername position : positions) {
@@ -30,42 +32,38 @@ public class WalletService {
     }
     return netWorth;
   }
-  public List<Position> getOpenPositions(String username) {
-    List<PositionWithUsername> positions = repository.findByUsername(username);
+  public List<PositionWithUsername> getOpenPositions(String username) {
+    Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return null;
 
-    return positions.stream()
-        .map(wallet -> {
-          Position position = new Position();
-          position.setTicker(wallet.getTicker());
-          position.setQuantity(wallet.getQuantity());
-          position.setUnitValue(wallet.getUnitValue());
-          return position;
-        })
+    return StreamSupport.stream(positions.spliterator(), false)
         .filter(position -> position.getQuantity() > 0)
         .collect(Collectors.toList());
   }
-  public List<Position> addPositions(String username, List<Position> newPositions) {
-    List<PositionWithUsername> existingPositions = repository.findByUsername(username);
+  public List<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
+    Iterable<PositionWithUsername> existingPositions = repository.findByUsername(username);
+    List<PositionWithUsername> positionsUpdated = new ArrayList<>();
     if (investorProxy.readOne(username) == null) return null;
 
     for (Position position : newPositions) {
-      PositionWithUsername existingPosition = existingPositions.stream()
+      PositionWithUsername existingPosition = StreamSupport.stream(existingPositions.spliterator(), false)
           .filter(p -> p.getTicker().equals(position.getTicker()))
           .findFirst()
           .orElse(null);
       if (existingPosition != null) {
         existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
+        positionsUpdated.add(existingPosition);
         repository.save(existingPosition);
       }
-      else{
+      else {
         PositionWithUsername newPosition = new PositionWithUsername();
         newPosition.setUsername(username);
         newPosition.setTicker(position.getTicker());
         newPosition.setQuantity(position.getQuantity());
+        positionsUpdated.add(newPosition);
         repository.save(newPosition);
       }
     }
-    return getOpenPositions(username);
+    return positionsUpdated;
   }
 }
