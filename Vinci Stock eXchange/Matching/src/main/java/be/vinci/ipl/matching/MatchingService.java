@@ -39,15 +39,20 @@ public class MatchingService {
 
     if (chosenSellOrder != null){
 
+      int remainingSellOrderTitle = chosenSellOrder.getQuantity() - chosenSellOrder.getFilled();
+      int remainingBuyOrderTitle = chosenBuyOrder.getQuantity() - chosenBuyOrder.getFilled();
+      int titleQuantity = Math.min(remainingBuyOrderTitle, remainingSellOrderTitle);
+
       Transaction transaction = new Transaction(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(),
-              chosenSellOrder.getGuid(), chosenBuyOrder.getGuid(), 0,0);
+              chosenSellOrder.getGuid(), chosenBuyOrder.getGuid(), titleQuantity,0);
 
       executionProxy.executeOrder(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(), transaction);
-      int remainingTitles = chosenBuyOrder.getQuantity() - chosenSellOrder.getQuantity();
-      if (remainingTitles >= 0){
-        PatchDTO patchDTO = new PatchDTO(remainingTitles);
-        ordersProxy.updateOrderQuantity(chosenBuyOrder.getGuid(), patchDTO);
-      }
+
+      PatchDTO patchDTOSell = new PatchDTO(chosenSellOrder.getFilled() + titleQuantity);
+      PatchDTO patchDTOBuy = new PatchDTO(chosenBuyOrder.getFilled() + titleQuantity);
+
+      ordersProxy.updateOrderQuantity(chosenSellOrder.getGuid(), patchDTOSell);
+      ordersProxy.updateOrderQuantity(chosenBuyOrder.getGuid(), patchDTOBuy);
     }
   }
 }

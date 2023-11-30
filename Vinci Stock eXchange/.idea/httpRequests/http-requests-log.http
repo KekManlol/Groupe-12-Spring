@@ -797,33 +797,3 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 
 ###
 
-PATCH http://localhost:9002/order/1ea201e5-af1b-43a4-8499-9458cf19c6a1
-Content-Type: application/json
-Content-Length: 17
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "filled": 2
-}
-
-<> 2023-11-30T020018.400.json
-
-###
-
-PATCH http://localhost:9002/order/1ea201e5-af1b-43a4-8499-9458cf19c6a1
-Content-Type: application/json
-Content-Length: 17
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "filled": 2
-}
-
-<> 2023-11-30T015855.400.json
-
-###
-
