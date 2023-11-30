@@ -1,10 +1,14 @@
 package be.vinci.ipl.investor;
 
+import be.vinci.ipl.investor.exceptions.BadRequestException;
+import be.vinci.ipl.investor.exceptions.NotFoundException;
 import be.vinci.ipl.investor.model.InvestorData;
 import be.vinci.ipl.investor.model.InvestorWithPassword;
 import be.vinci.ipl.investor.model.UnsafeCrendential;
 import be.vinci.ipl.investor.repositories.AuthenticationProxy;
 import be.vinci.ipl.investor.repositories.WalletProxy;
+import feign.FeignException;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,6 +40,7 @@ public class InvestorService {
    *
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
+    if (repository.existsById(investorWithPassword.getInvestorData().getUsername()))return false;
     UnsafeCrendential unsafeCrendential = new UnsafeCrendential();
     String username = investorWithPassword.getInvestorData().getUsername();
     unsafeCrendential.setPassword(investorWithPassword.getPassword());
@@ -59,18 +64,23 @@ public class InvestorService {
    * @param username The username of the investor
    * @return True if the credentials and his wallet were deleted, or false if they couldn't be found
    */
-  public int deleteOne(String username) {
-
+  public void deleteOne(String username) throws NotFoundException, BadRequestException {
 
     // delete credendtials
-    boolean found = authenticationProxy.deleteOne(username);
-    if (!found) return -1;
-    repository.deleteById(username);
+    try{
+      authenticationProxy.deleteOne(username);
+    } catch (Exception e){throw new NotFoundException();}
 
-    // "delete" wallets
-    float netWorth = walletProxy.getNetWorth(username);
-    if (netWorth == 0) return -2;
+    // throw exception for "delete" wallet
+    try{
+      Float netWorth = walletProxy.getNetWorth(username);
+      if (netWorth != 0) throw new BadRequestException();
+    }catch (FeignException e){
+      ;
+    }
+    finally {
+      repository.deleteById(username);
+    }
 
-    return 1;
   }
 }

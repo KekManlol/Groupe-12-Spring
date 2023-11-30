@@ -12,7 +12,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "orders")
 public class Order {
     
     public enum Side {
@@ -22,21 +21,16 @@ public class Order {
     public enum Type {
         MARKET, LIMIT;
     }
-    
-    @Id
+
     private String guid;
     
     private String owner;
 
     private String timestamp;
 
-    @Column(nullable = false)
     private String ticker;
-    @Column(nullable = false)
     private int quantity;
-    @Column(nullable = false)
     private Side side;
-    @Column(nullable = false)
     private Type type;
 
     private double limit;

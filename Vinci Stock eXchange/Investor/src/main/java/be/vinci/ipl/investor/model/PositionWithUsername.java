@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Wallet {
+public class PositionWithUsername {
   private String ticker;
   private String username;
   private float unitValue;

@@ -1,7 +1,7 @@
 package be.vinci.ipl.wallet;
 
 import be.vinci.ipl.wallet.model.Position;
-import be.vinci.ipl.wallet.model.Wallet;
+import be.vinci.ipl.wallet.model.PositionWithUsername;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class WalletController {
 
   @GetMapping("/wallet/{username}/net-worth")
   public ResponseEntity<Float> getNetWorth(@PathVariable String username) {
-    float netWorth = service.getNetWorth(username);
-    if (netWorth == -1) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    Float netWorth = service.getNetWorth(username);
+    if (netWorth == 0) return new ResponseEntity<>(netWorth, HttpStatus.NOT_FOUND);
     return new ResponseEntity<>(netWorth, HttpStatus.OK);
 
   }
@@ -33,7 +33,7 @@ public class WalletController {
   @GetMapping("/wallet/{username}")
   public ResponseEntity<List<Position>> getOpenPositions(@PathVariable String username) {
     List<Position> openPositions = service.getOpenPositions(username);
-    if (openPositions == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    if (openPositions == null) return new ResponseEntity<>(openPositions, HttpStatus.NOT_FOUND);
     return new ResponseEntity<>(openPositions, HttpStatus.OK);
 
 
