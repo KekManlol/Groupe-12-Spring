@@ -9,27 +9,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-public class Order {
-
-  private String guid;
-
-
-  private String owner;
-
-  private int timestamp;
-
-
+public class Position {
   private String ticker;
-
-
+  private float unitValue;
   private int quantity;
-
-
-  private OrderSide side;
-
-  private OrderType type;
-
-  private double limit;
-  private int filled;
 }

@@ -2,7 +2,6 @@ package be.vinci.ipl.execution;
 
 import be.vinci.ipl.execution.models.Order;
 import be.vinci.ipl.execution.models.Position;
-import be.vinci.ipl.execution.repositories.ExecutionRepository;
 import be.vinci.ipl.execution.repositories.OrderProxy;
 import be.vinci.ipl.execution.repositories.PriceProxy;
 import be.vinci.ipl.execution.repositories.WalletProxy;
@@ -11,13 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExecutionService {
 
-  private final ExecutionRepository repository;
   private final WalletProxy walletProxy;
   private final PriceProxy priceProxy;
   private final OrderProxy orderProxy;
 
-  public ExecutionService(ExecutionRepository repository, WalletProxy walletProxy, PriceProxy priceProxy, OrderProxy orderProxy){
-    this.repository = repository;
+  public ExecutionService(WalletProxy walletProxy, PriceProxy priceProxy, OrderProxy orderProxy){
     this.walletProxy = walletProxy;
     this.priceProxy = priceProxy;
     this.orderProxy = orderProxy;
@@ -53,7 +50,7 @@ public class ExecutionService {
    * @param newPrice the ticker's new price.
    */
   public void updatePrice(String ticker, int newPrice){
-
+    priceProxy.updateOne(ticker, String.valueOf(newPrice));
   }
 
 }

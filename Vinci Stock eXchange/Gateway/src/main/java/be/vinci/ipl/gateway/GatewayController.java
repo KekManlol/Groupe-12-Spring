@@ -4,10 +4,13 @@ import be.vinci.ipl.gateway.exceptions.BadRequestException;
 import be.vinci.ipl.gateway.exceptions.ConflictException;
 import be.vinci.ipl.gateway.exceptions.NotFoundException;
 import be.vinci.ipl.gateway.exceptions.UnauthorizedException;
+import be.vinci.ipl.gateway.models.CashDTO;
 import be.vinci.ipl.gateway.models.Credentials;
 import be.vinci.ipl.gateway.models.InvestorData;
 import be.vinci.ipl.gateway.models.InvestorWithPassword;
 import be.vinci.ipl.gateway.models.Order;
+import be.vinci.ipl.gateway.models.Position;
+import be.vinci.ipl.gateway.models.QuantityDTO;
 import java.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +42,8 @@ public class GatewayController {
   }
 
   @PostMapping("/investor/{username}")
-  public ResponseEntity<Void> createInvestor(@PathVariable String username,
+  public ResponseEntity<Void> createInvestor(
+      @PathVariable String username,
       @RequestBody InvestorWithPassword investorWithPassword) {
     try {
       service.createInvestor(username, investorWithPassword);
@@ -52,8 +56,10 @@ public class GatewayController {
   }
 
   @PutMapping("/investor/{username}")
-  public ResponseEntity<Void> updateInvestor(@PathVariable String username,
+  public ResponseEntity<Void> updateInvestor(
+      @PathVariable String username,
       @RequestBody InvestorData investorData) {
+
     try {
       service.updateInvestor(username, investorData);
       return new ResponseEntity<>(HttpStatus.OK);
@@ -93,8 +99,10 @@ public class GatewayController {
 
 
   @PutMapping("/authentication/{username}")
-  public ResponseEntity<Void> updateCredentials(@PathVariable String username,
-      @RequestBody Credentials credentials, @RequestHeader("Authorization") String token) {
+  public ResponseEntity<Void> updateCredentials(
+      @PathVariable String username,
+      @RequestBody Credentials credentials,
+      @RequestHeader("Authorization") String token) {
 
     try {
       service.updateCredentials(username, credentials);
@@ -117,7 +125,8 @@ public class GatewayController {
   }
 
   @GetMapping("/order/by-user/{username}")
-  public ResponseEntity<Iterable<Order>> readAllOrdersFromUser(@PathVariable String username,
+  public ResponseEntity<Iterable<Order>> readAllOrdersFromUser(
+      @PathVariable String username,
       @RequestHeader("Authorization") String token) {
 
     String investorUsername = service.verify(token);
@@ -131,6 +140,72 @@ public class GatewayController {
     }
   }
 
+  @GetMapping("/wallet/{username}")
+  public ResponseEntity<Iterable<Position>> readAllOpenPositionsFromInvestor(
+      @PathVariable String username,
+      @RequestHeader("Authorization") String token) {
 
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+    try {
+      Iterable<Position> positions = service.readAllOpenPositionsFromInvestor(username);
+      return new ResponseEntity<>(positions, HttpStatus.OK);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @PostMapping("wallet/{username}/cash")
+  public ResponseEntity<Iterable<Position>> addOrRemoveCashFromWallet(
+      @PathVariable String username,
+      @RequestBody CashDTO cashDTO,
+      @RequestHeader("Authorization") String token) {
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+    try {
+      Iterable<Position> positions = service.addOrRemoveCashFromWallet(username, cashDTO);
+      return new ResponseEntity<>(positions, HttpStatus.OK);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @GetMapping("/wallet/{username}/net-worth")
+  public ResponseEntity<Float> readWalletNetValueFromInvestor(@PathVariable String username,
+      @RequestHeader("Authorization") String token){
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+    try {
+      Float netValue = service.readWalletNetValueFromInvestor(username);
+      return new ResponseEntity<>(netValue, HttpStatus.OK);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @PostMapping("/wallet/{username}/position/{ticker}")
+  public ResponseEntity<Iterable<Position>> addOrRemoveTickerQuantityFromWallet(
+      @PathVariable String username,
+      @PathVariable String ticker,
+      @RequestBody QuantityDTO quantityDTO,
+      @RequestHeader("Authorization") String token) {
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+    try {
+      Iterable<Position> positions = service.addOrRemoveTickerQuantityFromWallet(username, ticker,
+          quantityDTO);
+      return new ResponseEntity<>(positions, HttpStatus.OK);
+    } catch (NotFoundException e) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+  }
 
 }

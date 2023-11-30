@@ -1,4 +1,4 @@
-package be.vinci.ipl.order;
+package be.vinci.ipl.order.repositories;
 
 import be.vinci.ipl.order.models.Order;
 import be.vinci.ipl.order.models.OrderSide;
