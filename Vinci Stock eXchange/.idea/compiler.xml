@@ -8,8 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Order" />
+        <module name="Matching" />
         <module name="execution" />
+        <module name="Price" />
         <module name="Wallet" />
+        <module name="Authentication" />
+        <module name="Gateway" />
+        <module name="Investor" />
+        <module name="Eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
