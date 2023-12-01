@@ -40,3 +40,17 @@ Content-Type: application/json
   "quantity": 10,
   "price": 100
 }
+
+### Invalid transaction, should return 400 (wrong buy order)
+POST http://localhost:9007/execute/LNRD/testUser3/testUser
+Content-Type: application/json
+
+{
+  "ticker": "LNRD",
+  "seller": "testUser3",
+  "buyer": "testUser",
+  "buy_order_guid": "5073c3b8-4ff0-4169-95cc-14ba61a5b4a6",
+  "sell_order_guid": "9785c3b8-4ff0-6347-12cc-52ba61a5b4a6",
+  "quantity": 10,
+  "price": 100
+}

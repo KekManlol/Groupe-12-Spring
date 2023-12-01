@@ -45,31 +45,33 @@ public class ExecutionController {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    float transactionPrice = transaction.getPrice();
+    int transactionQuantity = transaction.getQuantity();
 
     // Add cash to seller
     Position positionCashSeller = new Position("CASH",
-        (int) (transaction.getQuantity() * transaction.getPrice()), 1);
+        (int) (transactionQuantity * transactionPrice), 1);
     service.updateWallet(seller, positionCashSeller);
     // Substract cash from buyer
     Position positionCashBuyer = new Position("CASH",
-        (int) (-transaction.getQuantity() * transaction.getPrice()), 1);
+        (int) (-transactionQuantity * transactionPrice), 1);
     service.updateWallet(buyer, positionCashBuyer);
 
     // Remove ticker from seller's wallet
-    Position positionTickerSeller = new Position(ticker, transaction.getQuantity(),
-        transaction.getPrice());
+    Position positionTickerSeller = new Position(ticker, transactionQuantity,
+        transactionPrice);
     service.updateWallet(seller, positionTickerSeller);
     // Add ticker to buyer's wallet
-    Position positionTickerBuyer = new Position(ticker, -transaction.getQuantity(),
-        transaction.getPrice());
+    Position positionTickerBuyer = new Position(ticker, -transactionQuantity,
+        transactionPrice);
     service.updateWallet(buyer, positionTickerBuyer);
     // Update price
-    service.updatePrice(ticker, transaction.getPrice());
+    service.updatePrice(ticker, transactionPrice);
     // Update seller's order
-    sellerOrder.setFilled(sellerOrder.getFilled() - transaction.getQuantity());
+    sellerOrder.setFilled(sellerOrder.getFilled() - transactionQuantity);
     service.updateOrder(sellerOrder);
     // Update buyer's order
-    buyerOrder.setFilled(buyerOrder.getFilled() - transaction.getQuantity());
+    buyerOrder.setFilled(buyerOrder.getFilled() - transactionQuantity);
     service.updateOrder(buyerOrder);
 
     return new ResponseEntity<>(HttpStatus.OK);
