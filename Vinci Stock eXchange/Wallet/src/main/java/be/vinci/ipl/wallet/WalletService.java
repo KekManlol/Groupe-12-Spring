@@ -32,15 +32,26 @@ public class WalletService {
     }
     return netWorth;
   }
-  public Iterable<PositionWithUsername> getOpenPositions(String username) {
+  public Iterable<Position> getOpenPositions(String username) {
     Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return null;
+
     return StreamSupport.stream(positions.spliterator(), false)
         .filter(position -> position.getQuantity() > 0)
         .peek(position -> position.setUnitValue(priceProxy.getPriceByTicker(position.getTicker()).getPrice()))
+        .map(positionWithUsername -> {
+          // Convertir PositionWithUsername en Position
+          Position position = new Position();
+          position.setTicker(positionWithUsername.getTicker());
+          position.setQuantity(positionWithUsername.getQuantity());
+          position.setUnitValue(positionWithUsername.getUnitValue());
+          // Autres attributs à copier
+
+          return position;
+        })
         .collect(Collectors.toList());
   }
-  public Iterable<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
+  public Iterable<Position> addPositions(String username, List<Position> newPositions) {
     Iterable<PositionWithUsername> existingPositions = repository.findByUsername(username);
 
     if (investorProxy.readOne(username) == null) return null;
