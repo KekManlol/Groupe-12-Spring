@@ -1,3 +1,88 @@
+POST http://localhost:8080/wallet/testUser/position/AZERTYUIOOISDF
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.ihTS2VrT4UBuXPO1Fia2l1BybHzSePYowGOpA-zrMrXzYuolsrOWK04jFRSF32IJti6cxqYVyPCt1H4Pro-q9g
+Content-Type: application/json
+Content-Length: 22
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "quantity": 10.0
+}
+
+<> 2023-12-01T151458.200.json
+
+###
+
+GET http://localhost:8080/price/AZERTY
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T151338.200.json
+
+###
+
+POST http://localhost:8080/wallet/testUser/position/AZERTY
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.ihTS2VrT4UBuXPO1Fia2l1BybHzSePYowGOpA-zrMrXzYuolsrOWK04jFRSF32IJti6cxqYVyPCt1H4Pro-q9g
+Content-Type: application/json
+Content-Length: 22
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "quantity": 10.0
+}
+
+<> 2023-12-01T151208.200.json
+
+###
+
+GET http://localhost:8080/price/AZERTY
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T151156.404.json
+
+###
+
+POST http://localhost:8080/wallet/testUser/position/AZERTY
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.ihTS2VrT4UBuXPO1Fia2l1BybHzSePYowGOpA-zrMrXzYuolsrOWK04jFRSF32IJti6cxqYVyPCt1H4Pro-q9g
+Content-Type: application/json
+Content-Length: 22
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "quantity": 10.0
+}
+
+<> 2023-12-01T150232.200.json
+
+###
+
+GET http://localhost:8080/wallet/testUser
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.ihTS2VrT4UBuXPO1Fia2l1BybHzSePYowGOpA-zrMrXzYuolsrOWK04jFRSF32IJti6cxqYVyPCt1H4Pro-q9g
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T150221.200.json
+
+###
+
+GET http://localhost:9002/order/open/by-ticker/LNRD/BUY
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T150202.200.json
+
+###
+
 GET http://localhost:9004/price/AZERTY
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
@@ -698,140 +783,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-12-01T133016.400.json
-
-###
-
-POST http://localhost:9002/order
-Content-Type: application/json
-Content-Length: 158
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "owner": "testUser",
-  "timestamp": 123456789,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "side": "BUY",
-  "type": "LIMIT",
-  "limit": 100.0,
-  "filled": 0
-}
-
-<> 2023-12-01T132840.500.json
-
-###
-
-POST http://localhost:9002/order
-Content-Type: application/json
-Content-Length: 158
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "owner": "testUser",
-  "timestamp": 123456789,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "side": "BUY",
-  "type": "LIMIT",
-  "limit": 100.0,
-  "filled": 0
-}
-
-<> 2023-12-01T132807.500.json
-
-###
-
-POST http://localhost:9002/order
-Content-Type: application/json
-Content-Length: 144
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "owner": "testUser",
-  "timestamp": 123456789,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "side": "BUY",
-  "type": "LIMIT",
-  "limit": 100.0,
-}
-
-<> 2023-12-01T132739.400.json
-
-###
-
-POST http://localhost:9002/order
-Content-Type: application/json
-Content-Length: 158
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "owner": "testUser",
-  "timestamp": 123456789,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "side": "BUY",
-  "type": "LIMIT",
-  "limit": 100.0,
-  "filled": 0
-}
-
-<> 2023-12-01T132528.500.json
-
-###
-
-POST http://localhost:9002/order
-Content-Type: application/json
-Content-Length: 144
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "owner": "testUser",
-  "timestamp": 123456789,
-  "ticker": "AAPL",
-  "quantity": 10,
-  "side": "BUY",
-  "type": "LIMIT",
-  "limit": 100.0,
-}
-
-<> 2023-12-01T132521.400.json
-
-###
-
-GET http://localhost:8080/wallet/test10/net-worth
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdDEwIn0.mPXBOZoUHnBaaMJL5pKCfV0bcGIMynA4dlMLrsmO47F_vAtZGPagVtpXwvPvhC-zrz6QtxG695QW4fsVvKzdeg
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-01T132350.200.json
-
-###
-
-POST http://localhost:8080/wallet/test10/cash
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdDEwIn0.mPXBOZoUHnBaaMJL5pKCfV0bcGIMynA4dlMLrsmO47F_vAtZGPagVtpXwvPvhC-zrz6QtxG695QW4fsVvKzdeg
-Content-Type: application/json
-Content-Length: 19
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "cash": 100.0
-}
-
-<> 2023-12-01T132347.200.json
 
 ###
 

@@ -31,12 +31,15 @@ public class GatewayService {
   AuthenticationProxy authenticationProxy;
   OrderProxy orderProxy;
   WalletProxy walletProxy;
+  PriceProxy priceProxy;
+
   public GatewayService(InvestorsProxy investorsProxy, AuthenticationProxy authenticationProxy,
-      OrderProxy orderProxy, WalletProxy walletProxy) {
+      OrderProxy orderProxy, WalletProxy walletProxy, PriceProxy priceProxy) {
     this.investorsProxy = investorsProxy;
     this.authenticationProxy = authenticationProxy;
     this.orderProxy = orderProxy;
     this.walletProxy = walletProxy;
+    this.priceProxy = priceProxy;
   }
 
   /**
@@ -280,5 +283,15 @@ public class GatewayService {
       if (e.status() == 404) throw new NotFoundException();
       else throw e;
     }
+  }
+
+  /**
+   * Read the price of a ticker
+   *
+   * @param ticker Identifier of the financial instrument
+   * @return the current price of the financial instrument
+   */
+  public Price readPrice(String ticker) {
+    return priceProxy.readPrice(ticker);
   }
 }

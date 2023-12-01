@@ -210,13 +210,16 @@ GET http://localhost:8080/wallet/test9
 Authorization: {{token}}
 
 ### Add 10 quantity of the ticker 'AZERTY' in testUser
-POST http://localhost:8080/wallet/testUser/position/AZERTY
+POST http://localhost:8080/wallet/testUser/position/XYZ
 Authorization: {{token}}
 Content-Type: application/json
 
 {
   "quantity": 10.0
 }
+
+### Read price of AZERTY
+GET http://localhost:8080/price/XYZ
 
 
 

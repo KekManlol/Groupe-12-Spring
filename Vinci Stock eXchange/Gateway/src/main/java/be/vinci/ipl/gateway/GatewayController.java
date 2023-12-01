@@ -10,6 +10,7 @@ import be.vinci.ipl.gateway.models.InvestorData;
 import be.vinci.ipl.gateway.models.InvestorWithPassword;
 import be.vinci.ipl.gateway.models.Order;
 import be.vinci.ipl.gateway.models.Position;
+import be.vinci.ipl.gateway.models.Price;
 import be.vinci.ipl.gateway.models.QuantityDTO;
 import java.util.Objects;
 import org.springframework.http.HttpStatus;
@@ -219,6 +220,12 @@ public class GatewayController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+  }
+
+  @GetMapping("/price/{ticker}")
+  public ResponseEntity<Price> readPrice(@PathVariable String ticker) {
+    Price price = service.readPrice(ticker);
+    return new ResponseEntity<>(price, HttpStatus.OK);
   }
 
 }
