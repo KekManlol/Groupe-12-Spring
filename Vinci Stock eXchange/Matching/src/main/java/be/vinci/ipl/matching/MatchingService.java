@@ -3,6 +3,7 @@ package be.vinci.ipl.matching;
 import be.vinci.ipl.matching.data.ExecutionProxy;
 import be.vinci.ipl.matching.data.OrderProxy;
 import be.vinci.ipl.matching.models.Order;
+import be.vinci.ipl.matching.models.OrderSide;
 import be.vinci.ipl.matching.models.PatchDTO;
 import be.vinci.ipl.matching.models.Transaction;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,8 @@ public class MatchingService {
    */
   public void findMatches(String ticker) {
 
-    Iterable<Order> sellOrders = orderProxy.findOrdersByTicker(ticker, "SELL");
-    Iterable<Order> buyOrders = orderProxy.findOrdersByTicker(ticker, "BUY");
+    Iterable<Order> sellOrders = orderProxy.findOrdersByTicker(ticker, OrderSide.SELL);
+    Iterable<Order> buyOrders = orderProxy.findOrdersByTicker(ticker, OrderSide.BUY);
 
     Order chosenSellOrder = null;
     Order chosenBuyOrder = null;
