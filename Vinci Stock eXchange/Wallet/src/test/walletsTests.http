@@ -5,7 +5,7 @@ GET http://localhost:9005/wallet/bob/net-worth
 GET http://localhost:9005/wallet/bob
 
 ### Add Position(s) by username
-POST http://localhost:9005/wallet/bob
+POST http://localhost:9005/wallet/test3
 Content-Type: application/json
 
 [

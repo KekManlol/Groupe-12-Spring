@@ -1,26 +1,10 @@
-### Connect user
-POST http://localhost:8080/authentication/connect
-Content-Type: application/json
-
-{
-  "username": "test",
-  "password": "blablabla"
-}
-
-> {% client.global.set("token", response.body) %}
-
-
-### Read investor
-GET http://localhost:8080/investor/bob
-Authorization: {{token}}
-
-### Create investor
-POST http://localhost:8080/investor/david
+### Create invalid investor
+POST http://localhost:8080/investor/test10
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "david",
+    "username": "test8",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -28,4 +12,169 @@ Content-Type: application/json
   },
   "password": "Patrick"
 }
+
+### Create investor
+POST http://localhost:8080/investor/test10
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "test10",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+
+### Create existing investor
+POST http://localhost:8080/investor/test10
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "test10",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+
+### Connect user
+POST http://localhost:8080/authentication/connect
+Content-Type: application/json
+
+{
+  "username": "test10",
+  "password": "Patrick"
+}
+
+> {%
+  client.global.set("token", response.body)
+%}
+
+### Read their own information
+GET http://localhost:8080/investor/test10
+Authorization: {{token}}
+
+### Read information while not being connected
+GET http://localhost:8080/investor/test10
+Authorization: ''
+
+### Read another investor's information
+GET http://localhost:8080/investor/test
+Authorization: {{token}}
+
+### Update their own information
+PUT http://localhost:8080/investor/test10
+Content-Type: application/json
+
+{
+  "username": "test10",
+  "email": "bob.eponge@gmail.com",
+  "firstname": "Boby",
+  "lastname": "Eponge",
+  "birthday": "2000-01-01"
+}
+
+### Update another investor's information
+PUT http://localhost:8080/investor/test
+Content-Type: application/json
+
+{
+  "username": "test",
+  "email": "bob.eponge@gmail.com",
+  "firstname": "Boby",
+  "lastname": "Eponge",
+  "birthday": "2000-01-01"
+}
+
+### Create investor to test delete
+POST http://localhost:8080/investor/test11
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "test11",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+
+### Delete an investor
+DELETE http://localhost:8080/investor/test11
+
+### Delete non existing investor
+DELETE http://localhost:8080/investor/test220
+
+### Add cash to test10 wallet
+POST http://localhost:8080/wallet/test10/cash
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "cash": 100.0
+}
+
+### Read Net worth value of test10 wallet
+GET http://localhost:8080/wallet/test10/net-worth
+Authorization: {{token}}
+
+### Delete an investor but the investor's situation does not allow (test with wallet)
+DELETE http://localhost:9001/investor/test10
+
+### Update Credentials
+PUT http://localhost:8080/authentication/test10
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "username": "test10",
+  "password": "Patrick2"
+}
+
+### Create investor to test update
+POST http://localhost:8080/investor/test9
+Content-Type: application/json
+
+{
+  "investorData": {
+    "username": "test9",
+    "email": "bob@gmail.com",
+    "firstname": "Bob",
+    "lastname": "Eponge",
+    "birthday": "2000-01-01"
+  },
+  "password": "Patrick"
+}
+
+### Update invest test11 credentials while being connected as test10
+PUT http://localhost:8080/authentication/test12
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "username": "test12",
+  "password": "Patrick2"
+}
+
+### Update invest test10 credentials with no valid token
+PUT http://localhost:8080/authentication/test12
+Authorization: sdfsdf
+Content-Type: application/json
+
+{
+  "username": "test12",
+  "password": "Patrick2"
+}
+
+
+
+
 

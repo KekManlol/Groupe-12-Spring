@@ -16,10 +16,18 @@ public class PriceService {
 
   /**
    * @param ticker the ticker's identifier.
-   * @return the ticker or null if not found.
+   * @return the ticker's price
    */
   public Price readOne(String ticker) {
-    return repository.findByTicker(ticker).orElse(null);
+    Price price = repository.findByTicker(ticker).orElse(null);
+    if (price == null) {
+      Price newPrice = new Price();
+      newPrice.setTicker(ticker);
+      newPrice.setPrice(1);
+      repository.save(newPrice);
+      price = newPrice;
+    }
+    return price;
   }
 
   /**

@@ -20,6 +20,7 @@ public class PositionWithUsername {
   @Column(unique = true)
   @Size(max= 4, min = 4)
   private String ticker;
+  @Column(nullable = false)
   private String username;
   @Column(name = "unit_value", nullable = false)
   private float unitValue;

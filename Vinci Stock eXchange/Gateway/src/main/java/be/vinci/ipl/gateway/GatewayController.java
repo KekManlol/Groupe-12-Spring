@@ -38,6 +38,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       InvestorData investor = service.readInvestor(username);
@@ -88,9 +89,6 @@ public class GatewayController {
     }
   }
 
-
-
-
   @PostMapping("/authentication/connect")
   public ResponseEntity<String> connect(@RequestBody Credentials credentials) {
     try {
@@ -109,6 +107,10 @@ public class GatewayController {
       @PathVariable String username,
       @RequestBody Credentials credentials,
       @RequestHeader("Authorization") String token) {
+
+    String investorUsername = service.verify(token);
+    if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       service.updateCredentials(username, credentials);
@@ -137,6 +139,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       Iterable<Order> orders = service.readAllOrdersFromUser(username);
@@ -153,6 +156,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       Iterable<Position> positions = service.readAllOpenPositionsFromInvestor(username);
@@ -170,6 +174,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       Iterable<Position> positions = service.addOrRemoveCashFromWallet(username, cashDTO);
@@ -185,6 +190,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       Float netValue = service.readWalletNetValueFromInvestor(username);
@@ -203,6 +209,7 @@ public class GatewayController {
 
     String investorUsername = service.verify(token);
     if (investorUsername == null) return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    else if (!Objects.equals(investorUsername, username)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 
     try {
       Iterable<Position> positions = service.addOrRemoveTickerQuantityFromWallet(username, ticker,

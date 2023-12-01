@@ -1,2 +1,5 @@
-### FIND MATCHES
-POST {{matching_url}}/AAPL
+### FIND MATCHES FOR AAPL
+POST http://localhost:9006/trigger/AAPL
+
+### FIND MATCHES FOR LNRD
+POST http://localhost:9006/trigger/LNRD

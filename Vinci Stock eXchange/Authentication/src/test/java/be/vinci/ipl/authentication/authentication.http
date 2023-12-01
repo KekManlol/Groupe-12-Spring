@@ -1,13 +1,22 @@
-### CREATE ONE
+### CREATE ONE NON-EXISTING USER
 POST {{authentication_url}}/test
 Content-Type: application/json
 
 {
-  "username": "sdfsf",
+  "username": "test",
   "password": "blablabla"
 }
 
-### CONNECT ONE
+### CREATE ONE EXISTING USER
+POST {{authentication_url}}/test1
+Content-Type: application/json
+
+{
+  "username": "test1",
+  "password": "password"
+}
+
+### CONNECT ONE EXISTING USER
 POST {{authentication_url}}/connect
 Content-Type: application/json
 
@@ -16,17 +25,48 @@ Content-Type: application/json
   "password": "blablabla"
 }
 
+### CONNECT ONE NON-EXISTING USER
+POST {{authentication_url}}/connect
+Content-Type: application/json
+
+{
+  "username": "nonExistingUser",
+  "password": "blablabla"
+}
+
+
 ### VERIFY
 POST {{authentication_url}}/verify
 Content-Type: text/plain
 
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdCJ9.ZnvsrW07eomBqBgqqThoYO6jizwJhV-t0f-aHcKQpHQWTOhdpC7F9J2C0woRFl7Ue1b2U7r80NojqCss5SOygg
 
-### DELETE ONE
+### DELETE ONE EXISTING USER
 DELETE {{authentication_url}}/test
 
-### UPDATE ONE
+### DELETE ONE NON-EXISTING USER
+DELETE {{authentication_url}}/nonExisting
+
+### UPDATE ONE EXISTING USER
 PUT {{authentication_url}}/test
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "password"
+}
+
+### UPDATE ONE EXISTING USER
+PUT {{authentication_url}}/nonExisting
+Content-Type: application/json
+
+{
+  "username": "nonExisting",
+  "password": "password"
+}
+
+### UPDATE ONE EXISTING USER WITH WRONG PATH
+PUT {{authentication_url}}/test5
 Content-Type: application/json
 
 {

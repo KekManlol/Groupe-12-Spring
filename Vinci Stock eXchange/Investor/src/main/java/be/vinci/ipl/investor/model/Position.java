@@ -1,10 +1,5 @@
-package be.vinci.ipl.wallet.model;
+package be.vinci.ipl.investor.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +11,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Position {
   private String ticker;
-  private int quantity;
   private float unitValue;
-
+  private int quantity;
 }

@@ -30,16 +30,22 @@ public class GatewayService {
   InvestorsProxy investorsProxy;
   AuthenticationProxy authenticationProxy;
   OrderProxy orderProxy;
-  PriceProxy priceProxy;
   WalletProxy walletProxy;
   public GatewayService(InvestorsProxy investorsProxy, AuthenticationProxy authenticationProxy,
-      OrderProxy orderProxy, WalletProxy walletProxy, PriceProxy priceProxy) {
+      OrderProxy orderProxy, WalletProxy walletProxy) {
     this.investorsProxy = investorsProxy;
     this.authenticationProxy = authenticationProxy;
     this.orderProxy = orderProxy;
     this.walletProxy = walletProxy;
-    this.priceProxy = priceProxy;
   }
+
+  /**
+   * Read an Investor's information
+   *
+   * @param username Username of the investor
+   * @return Investor information
+   * @throws NotFoundException when investor was not found
+   */
   public InvestorData readInvestor(String username) throws NotFoundException {
     try {
       return investorsProxy.readInvestor(username);
@@ -48,6 +54,15 @@ public class GatewayService {
       else throw e;
     }
   }
+
+  /**
+   * Create investor and credentials
+   *
+   * @param username
+   * @param investorWithPassword
+   * @throws BadRequestException when invalid investor or invalid password
+   * @throws ConflictException when investor already created
+   */
   public void createInvestor(String username, InvestorWithPassword investorWithPassword)
       throws BadRequestException, ConflictException {
     try {
@@ -59,6 +74,15 @@ public class GatewayService {
     }
   }
 
+
+  /**
+   * Update an investor information
+   *
+   * @param username Username of the investor
+   * @param investorData New investor's information for the update
+   * @throws BadRequestException when invalid new investor's information
+   * @throws NotFoundException when investor was not found
+   */
   public void updateInvestor(String username, InvestorData investorData)
       throws BadRequestException, NotFoundException {
 
@@ -71,6 +95,13 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Delete an investor, their credentials and their wallets
+   *
+   * @param username Username of the investor
+   * @throws BadRequestException when the investor's situation doesn't allow them to delete their account
+   * @throws NotFoundException when the credentials were not found
+   */
   public void deleteInvestor(String username) throws BadRequestException, NotFoundException {
     try {
       investorsProxy.deleteInvestor(username);
@@ -81,6 +112,14 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Get connection token from credentials
+   *
+   * @param credentials Credentials of the user
+   * @return Connection token
+   * @throws BadRequestException when the credentials are invalid
+   * @throws UnauthorizedException when the credentials are incorrect
+   */
   public String connect(Credentials credentials) throws BadRequestException, UnauthorizedException {
     try {
       return authenticationProxy.connect(credentials);
@@ -91,6 +130,14 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Update credentials of an existing investor
+   *
+   * @param username Username of the investor
+   * @param credentials Credentials of the investor
+   * @throws BadRequestException when invalid credentials
+   * @throws NotFoundException when credentials were not found
+   */
   public void updateCredentials(String username, Credentials credentials)
       throws BadRequestException, NotFoundException {
     try {
@@ -102,6 +149,13 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Place an order
+   *
+   * @param order Order to be placed
+   * @return the new order
+   * @throws BadRequestException when invalid order
+   */
   public Order createOrder(Order order) throws BadRequestException {
     try {
       return orderProxy.createOrder(order);
@@ -111,6 +165,13 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Read all orders (open and completed) of an investor
+   *
+   * @param username Username of the investor
+   * @return the list of all open and completed orders of an investor
+   * @throws NotFoundException when the investor was not found
+   */
   public Iterable<Order> readAllOrdersFromUser(String username) throws NotFoundException {
     try {
       return orderProxy.readAllOrdersFromUser(username);
@@ -120,6 +181,12 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Get investor's username from connection token
+   *
+   * @param token Connection token
+   * @return Investor's username, or null if token invalid
+   */
   public String verify(String token) {
     try {
       return authenticationProxy.verify(token);
@@ -129,6 +196,13 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Read all open positions of an investor
+   *
+   * @param username Username of the investor
+   * @return a list of all open positions of an investor
+   * @throws NotFoundException when the investor was not found
+   */
   public Iterable<Position> readAllOpenPositionsFromInvestor(String username)
       throws NotFoundException {
     try {
@@ -140,21 +214,38 @@ public class GatewayService {
 
   }
 
+  /**
+   * Add or remove cash from an investor's wallet
+   *
+   * @param username Username of the investor
+   * @param cashDTO DTO with
+   * @return the list of all open positions of the investor
+   * @throws NotFoundException when the investor was not found
+   */
   public Iterable<Position> addOrRemoveCashFromWallet(String username, CashDTO cashDTO) throws NotFoundException {
     try {
-      Position cashPosition = new Position("CASH", 1, (int) cashDTO.getCash());
+      Position cashPosition = new Position();
+      cashPosition.setTicker("CASH");
+      cashPosition.setQuantity((int) cashDTO.getCash());
       List<Position> positions = new ArrayList<>();
       positions.add(cashPosition);
       walletProxy.addPositions(username, positions);
 
       return walletProxy.readAllOpenPositionsFromInvestor(username);
+
     } catch (FeignException e) {
       if (e.status() == 404) throw new NotFoundException();
       else throw e;
     }
   }
 
-
+  /**
+   * Read an investor's wallet net value
+   *
+   * @param username Username of the investor
+   * @return the net value of the wallet
+   * @throws NotFoundException when the investor was not found
+   */
   public Float readWalletNetValueFromInvestor(String username) throws NotFoundException {
     try {
       return walletProxy.readWalletNetValueFromInvestor(username);
@@ -164,16 +255,27 @@ public class GatewayService {
     }
   }
 
+  /**
+   * Add or remove a quantity of a ticker from a wallet
+   *
+   * @param username Username of the investor
+   * @param ticker Identifier of the financial instrument
+   * @param quantityDTO DTO containing the quantity to add or remove
+   * @return the list of all open positions of the investor
+   * @throws NotFoundException when the investor was not found
+   */
   public Iterable<Position> addOrRemoveTickerQuantityFromWallet(String username, String ticker,
       QuantityDTO quantityDTO) throws NotFoundException {
     try {
-      Price currentPrice = priceProxy.readPrice(ticker);
-      Position position = new Position(ticker, currentPrice.getPrice(), (int) quantityDTO.getQuantity());
+      Position position = new Position();
+      position.setTicker(ticker);
+      position.setQuantity((int) quantityDTO.getQuantity());
       List<Position> positions = new ArrayList<>();
       positions.add(position);
       walletProxy.addPositions(username, positions);
 
       return walletProxy.readAllOpenPositionsFromInvestor(username);
+
     } catch (FeignException e) {
       if (e.status() == 404) throw new NotFoundException();
       else throw e;
