@@ -1,5 +1,5 @@
 ### Create invalid investor
-POST http://localhost:8080/investor/testUser
+POST http://localhost:8080/investor/testGatewayInvestor
 Content-Type: application/json
 
 {
@@ -14,12 +14,12 @@ Content-Type: application/json
 }
 
 ### Create investor
-POST http://localhost:8080/investor/testUser
+POST http://localhost:8080/investor/testGatewayInvestor
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "testUser",
+    "username": "testGatewayInvestor",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -29,12 +29,12 @@ Content-Type: application/json
 }
 
 ### Create existing investor
-POST http://localhost:8080/investor/testUser
+POST http://localhost:8080/investor/testGatewayInvestor
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "testUser",
+    "username": "testGatewayInvestor",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -48,7 +48,7 @@ POST http://localhost:8080/authentication/connect
 Content-Type: application/json
 
 {
-  "username": "testUser",
+  "username": "testGatewayInvestor",
   "password": "Patrick"
 }
 
@@ -57,11 +57,11 @@ Content-Type: application/json
 %}
 
 ### Read their own information
-GET http://localhost:8080/investor/testUser
+GET http://localhost:8080/investor/testGatewayInvestor
 Authorization: {{token}}
 
 ### Read information while not being connected
-GET http://localhost:8080/investor/testUser
+GET http://localhost:8080/investor/testGatewayInvestor
 Authorization: ''
 
 ### Read another investor's information
@@ -69,11 +69,11 @@ GET http://localhost:8080/investor/test
 Authorization: {{token}}
 
 ### Update their own information
-PUT http://localhost:8080/investor/testUser
+PUT http://localhost:8080/investor/testGatewayInvestor
 Content-Type: application/json
 
 {
-  "username": "testUser",
+  "username": "testGatewayInvestor",
   "email": "bob.eponge@gmail.com",
   "firstname": "Boby",
   "lastname": "Eponge",
@@ -113,8 +113,8 @@ DELETE http://localhost:8080/investor/test11
 ### Delete non existing investor
 DELETE http://localhost:8080/investor/test220
 
-### Add cash to testUser wallet
-POST http://localhost:8080/wallet/testUser/cash
+### Add cash to testGatewayInvestor wallet
+POST http://localhost:8080/wallet/testGatewayInvestor/cash
 Authorization: {{token}}
 Content-Type: application/json
 
@@ -122,20 +122,20 @@ Content-Type: application/json
   "cash": 100.0
 }
 
-### Read Net worth value of testUser wallet
-GET http://localhost:8080/wallet/testUser/net-worth
+### Read Net worth value of testGatewayInvestor wallet
+GET http://localhost:8080/wallet/testGatewayInvestor/net-worth
 Authorization: {{token}}
 
-### Delete an investor but the investor's situation does not allow (test with wallet)
-DELETE http://localhost:9001/investor/testUser
+### Delete an investor but the investor's situation does not allow (wallet not empty)
+DELETE http://localhost:9001/investor/testGatewayInvestor
 
 ### Update Credentials
-PUT http://localhost:8080/authentication/testUser
+PUT http://localhost:8080/authentication/testGatewayInvestor
 Authorization: {{token}}
 Content-Type: application/json
 
 {
-  "username": "test10",
+  "username": "testGatewayInvestor",
   "password": "Patrick2"
 }
 
@@ -154,7 +154,7 @@ Content-Type: application/json
   "password": "Patrick"
 }
 
-### Update invest test9 credentials while being connected as testUser
+### Update invest test9 credentials while being connected as testGatewayInvestor
 PUT http://localhost:8080/authentication/test9
 Authorization: {{token}}
 Content-Type: application/json
@@ -164,7 +164,7 @@ Content-Type: application/json
   "password": "Patrick2"
 }
 
-### Update invest testUser credentials with no valid token
+### Update invest testGatewayInvestor credentials with no valid token
 PUT http://localhost:8080/authentication/test9
 Authorization: ""
 Content-Type: application/json
@@ -175,11 +175,11 @@ Content-Type: application/json
 }
 
 ### Create order
-POST http://localhost:8080/investor/testUser
+POST http://localhost:8080/investor/testGatewayInvestor
 Content-Type: application/json
 
 {
-  "owner": "testUser",
+  "owner": "testGatewayInvestor",
   "timestamp": 123446599789,
   "ticker": "AAPL",
   "quantity": 10,
@@ -189,36 +189,36 @@ Content-Type: application/json
   "filled": 0
 }
 
-### Read all orders of an existing user
-GET http://localhost:8080/order/by-user/testUser
+### Read all my orders
+GET http://localhost:8080/order/by-user/testGatewayInvestor
 Authorization: {{token}}
 
-### Read all orders of another investor while being connected as testUser
+### Read all orders of another investor while being connected as testGatewayInvestor
 GET http://localhost:8080/order/by-user/test9
 Authorization: {{token}}
 
 ### Read all open positions of an investor
-GET http://localhost:8080/wallet/testUser
+GET http://localhost:8080/wallet/testGatewayInvestor
 Authorization: {{token}}
 
-### Read all open positions of another investor while being connected as testUser
+### Read all open positions of another investor while being connected as testGatewayInvestor
 GET http://localhost:8080/wallet/test9
 Authorization: {{token}}
 
-### Read all open positions of another investor while being connected as testUser
+### Read all open positions of another investor while being connected as testGatewayInvestor
 GET http://localhost:8080/wallet/test9
 Authorization: {{token}}
 
-### Add 10 quantity of the ticker 'AZERTY' in testUser
-POST http://localhost:8080/wallet/testUser/position/XYZ
+### Add 10 quantity of the ticker 'XYZ' in testGatewayInvestor
+POST http://localhost:8080/wallet/testGatewayInvestor/position/XYZ
 Authorization: {{token}}
 Content-Type: application/json
 
 {
-  "quantity": 10.0
+  "quantity": -10.0
 }
 
-### Read price of AZERTY
+### Read price of XYZ
 GET http://localhost:8080/price/XYZ
 
 
