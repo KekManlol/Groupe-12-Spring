@@ -37,6 +37,7 @@ public class WalletService {
     if (investorProxy.readOne(username) == null) return null;
     return StreamSupport.stream(positions.spliterator(), false)
         .filter(position -> position.getQuantity() > 0)
+        .peek(position -> position.setUnitValue(priceProxy.getPriceByTicker(position.getTicker()).getPrice()))
         .collect(Collectors.toList());
   }
   public Iterable<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
