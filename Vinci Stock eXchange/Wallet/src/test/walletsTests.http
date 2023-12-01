@@ -18,7 +18,7 @@ Content-Type: application/json
   {
     "ticker": "CASH",
     "quantity": 100,
-    "unitvalue": 1
+    "unitvalue": 0
   }
 ]
 

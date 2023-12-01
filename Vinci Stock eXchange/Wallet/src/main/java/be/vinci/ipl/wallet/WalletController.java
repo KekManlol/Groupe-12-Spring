@@ -25,14 +25,14 @@ public class WalletController {
 
   }
   @PostMapping("/wallet/{username}")
-  public ResponseEntity<List<PositionWithUsername>> addPosition(@PathVariable String username, @RequestBody List<Position> positions) {
-    List<PositionWithUsername> updatedPositions = service.addPositions(username, positions);
+  public ResponseEntity<Iterable<PositionWithUsername>> addPositions(@PathVariable String username, @RequestBody List<Position> positions) {
+    Iterable<PositionWithUsername> updatedPositions = service.addPositions(username, positions);
     if (updatedPositions == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     return new ResponseEntity<>(updatedPositions, HttpStatus.OK);
   }
   @GetMapping("/wallet/{username}")
-  public ResponseEntity<List<PositionWithUsername>> getOpenPositions(@PathVariable String username) {
-    List<PositionWithUsername> openPositions = service.getOpenPositions(username);
+  public ResponseEntity<Iterable<PositionWithUsername>> getOpenPositions(@PathVariable String username) {
+    Iterable<PositionWithUsername> openPositions = service.getOpenPositions(username);
     if (openPositions == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     return new ResponseEntity<>(openPositions, HttpStatus.OK);
 

@@ -32,17 +32,16 @@ public class WalletService {
     }
     return netWorth;
   }
-  public List<PositionWithUsername> getOpenPositions(String username) {
+  public Iterable<PositionWithUsername> getOpenPositions(String username) {
     Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return null;
-
     return StreamSupport.stream(positions.spliterator(), false)
         .filter(position -> position.getQuantity() > 0)
         .collect(Collectors.toList());
   }
-  public List<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
+  public Iterable<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
     Iterable<PositionWithUsername> existingPositions = repository.findByUsername(username);
-    List<PositionWithUsername> positionsUpdated = new ArrayList<>();
+
     if (investorProxy.readOne(username) == null) return null;
 
     for (Position position : newPositions) {
@@ -52,7 +51,6 @@ public class WalletService {
           .orElse(null);
       if (existingPosition != null) {
         existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
-        positionsUpdated.add(existingPosition);
         repository.save(existingPosition);
       }
       else {
@@ -60,10 +58,9 @@ public class WalletService {
         newPosition.setUsername(username);
         newPosition.setTicker(position.getTicker());
         newPosition.setQuantity(position.getQuantity());
-        positionsUpdated.add(newPosition);
         repository.save(newPosition);
       }
     }
-    return positionsUpdated;
+    return existingPositions;
   }
 }

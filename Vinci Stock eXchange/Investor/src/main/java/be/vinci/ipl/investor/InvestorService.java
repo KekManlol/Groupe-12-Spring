@@ -4,11 +4,14 @@ import be.vinci.ipl.investor.exceptions.BadRequestException;
 import be.vinci.ipl.investor.exceptions.NotFoundException;
 import be.vinci.ipl.investor.model.InvestorData;
 import be.vinci.ipl.investor.model.InvestorWithPassword;
+import be.vinci.ipl.investor.model.Position;
 import be.vinci.ipl.investor.model.UnsafeCrendential;
 import be.vinci.ipl.investor.repositories.AuthenticationProxy;
 import be.vinci.ipl.investor.repositories.WalletProxy;
 import feign.FeignException;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -41,12 +44,22 @@ public class InvestorService {
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
     if (repository.existsById(investorWithPassword.getInvestorData().getUsername()))return false;
+
     UnsafeCrendential unsafeCrendential = new UnsafeCrendential();
     String username = investorWithPassword.getInvestorData().getUsername();
     unsafeCrendential.setPassword(investorWithPassword.getPassword());
     unsafeCrendential.setUsername(investorWithPassword.getInvestorData().getUsername());
     authenticationProxy.createOne(username, unsafeCrendential);
+
+    List<Position> newPosition = new ArrayList<>();
+    Position position = new Position();
+    position.setTicker("CASH");
+    position.setQuantity(0);
+    newPosition.add(position);
+
+    walletProxy.addPositions(username, newPosition);
     repository.save(investorWithPassword.getInvestorData());
+
     return true;
   }
   /**
