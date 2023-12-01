@@ -1,5 +1,6 @@
 package be.vinci.ipl.order;
 
+import be.vinci.ipl.order.data.MatchingProxy;
 import be.vinci.ipl.order.models.Order;
 import be.vinci.ipl.order.models.OrderSide;
 import be.vinci.ipl.order.repositories.OrderRepository;
@@ -10,9 +11,10 @@ import java.util.stream.StreamSupport;
 @Service
 public class OrderService {
     private final OrderRepository repository;
-
-    public OrderService(OrderRepository repository) {
+    private final MatchingProxy matchingProxy;
+    public OrderService(OrderRepository repository, MatchingProxy matchingProxy) {
         this.repository = repository;
+        this.matchingProxy = matchingProxy;
     }
 
     /**
@@ -22,6 +24,7 @@ public class OrderService {
      * @return Created order
      */
     public Order createOne(Order order) {
+        matchingProxy.findMatches(order.getTicker());
         return repository.save(order);
     }
 
