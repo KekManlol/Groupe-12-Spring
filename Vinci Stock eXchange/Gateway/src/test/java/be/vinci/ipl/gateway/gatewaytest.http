@@ -215,7 +215,7 @@ Authorization: {{token}}
 Content-Type: application/json
 
 {
-  "quantity": -10.0
+  "quantity": 10.0
 }
 
 ### Read price of XYZ
