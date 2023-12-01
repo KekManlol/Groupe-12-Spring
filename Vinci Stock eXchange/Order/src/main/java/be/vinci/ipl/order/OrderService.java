@@ -24,8 +24,9 @@ public class OrderService {
      * @return Created order
      */
     public Order createOne(Order order) {
-        matchingProxy.findMatches(order.getTicker());
-        return repository.save(order);
+        Order orderCreated = repository.save(order);
+        matchingProxy.findMatches(orderCreated.getTicker());
+        return orderCreated;
     }
 
     /**
