@@ -40,13 +40,13 @@ public class OrderService {
     }
 
     /**
-     * Updates an order's share quantity in repository
+     * Updates an order's filled value in repository
      *
      * @param guid Guid of the order
      * @param filled Quantity of shares already exchanged
      * @return true if the order was updated or false if the order couldn't be found
      */
-    public boolean updateSharesQuantity(String guid, int filled) {
+    public boolean updateFilled(String guid, int filled) {
         Order order = repository.findByGuid(guid).orElse(null);
         if (order == null) return false;
 

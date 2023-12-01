@@ -40,7 +40,6 @@ public class InvestorService {
    * Creates an investor with a password in repository
    * @param investorWithPassword The investor with insecure password
    * @return True if the credentials were created, or false if they already exist
-   *
    */
   public boolean createOne(InvestorWithPassword investorWithPassword){
     if (repository.existsById(investorWithPassword.getInvestorData().getUsername()))return false;
