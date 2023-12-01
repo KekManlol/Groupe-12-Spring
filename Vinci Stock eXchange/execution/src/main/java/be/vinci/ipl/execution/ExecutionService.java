@@ -5,6 +5,7 @@ import be.vinci.ipl.execution.models.Position;
 import be.vinci.ipl.execution.repositories.OrderProxy;
 import be.vinci.ipl.execution.repositories.PriceProxy;
 import be.vinci.ipl.execution.repositories.WalletProxy;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,7 +27,7 @@ public class ExecutionService {
    *
    */
   public void updateWallet(String username, Position position){
-    walletProxy.updateOne(username, position);
+    walletProxy.updateOne(username, List.of(position));
   }
 
   /**
@@ -48,7 +49,7 @@ public class ExecutionService {
    * @param ticker the ticker's identifier.
    * @param newPrice the ticker's new price.
    */
-  public void updatePrice(String ticker, int newPrice){
+  public void updatePrice(String ticker, float newPrice){
     priceProxy.updateOne(ticker, String.valueOf(newPrice));
   }
 
