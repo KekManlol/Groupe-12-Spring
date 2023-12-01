@@ -1,6 +1,9 @@
 package be.vinci.ipl.wallet.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.validation.constraints.Size;
@@ -15,10 +18,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @Entity(name = "wallets")
 public class PositionWithUsername {
-
   @Id
-  @Column(unique = true)
-  @Size(max= 4, min = 4)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(nullable = false)
+  @JsonIgnore
+  private Long id;
+  @Column(nullable = false)
   private String ticker;
   @Column(nullable = false)
   private String username;
@@ -26,6 +31,5 @@ public class PositionWithUsername {
   private float unitValue;
   @Column(nullable = false)
   private int quantity;
-
 }
 
