@@ -1,6 +1,7 @@
 package be.vinci.ipl.execution.repositories;
 
 import be.vinci.ipl.execution.models.Order;
+import be.vinci.ipl.execution.models.PatchDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,6 @@ public interface OrderProxy {
   Order getOne(@PathVariable String guid);
 
   @PatchMapping("/order/{guid}")
-  void updateOne(@PathVariable String guid, @RequestBody Order order);
+  void updateOne(@PathVariable String guid, @RequestBody PatchDTO patchDTO);
 
 }

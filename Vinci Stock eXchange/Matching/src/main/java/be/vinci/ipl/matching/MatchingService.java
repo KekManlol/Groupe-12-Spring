@@ -62,12 +62,6 @@ public class MatchingService {
               chosenSellOrder.getGuid(), chosenBuyOrder.getGuid(), titleQuantity, price);
 
       executionProxy.executeOrder(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(), transaction);
-
-      PatchDTO patchDTOSell = new PatchDTO(chosenSellOrder.getFilled() + titleQuantity);
-      PatchDTO patchDTOBuy = new PatchDTO(chosenBuyOrder.getFilled() + titleQuantity);
-
-      orderProxy.updateSharesQuantity(chosenSellOrder.getGuid(), patchDTOSell);
-      orderProxy.updateSharesQuantity(chosenBuyOrder.getGuid(), patchDTOBuy);
     }
   }
 }

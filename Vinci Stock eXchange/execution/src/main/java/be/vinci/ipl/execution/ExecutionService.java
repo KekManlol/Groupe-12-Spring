@@ -1,6 +1,7 @@
 package be.vinci.ipl.execution;
 
 import be.vinci.ipl.execution.models.Order;
+import be.vinci.ipl.execution.models.PatchDTO;
 import be.vinci.ipl.execution.models.Position;
 import be.vinci.ipl.execution.repositories.OrderProxy;
 import be.vinci.ipl.execution.repositories.PriceProxy;
@@ -41,8 +42,9 @@ public class ExecutionService {
   /**
    * @param newOrder the new order to update.
    */
-  public void updateOrder(Order newOrder){
-    orderProxy.updateOne(newOrder.getGuid(), newOrder);
+  public void updateOrder(Order newOrder, int transactionQuantity){
+    PatchDTO patchDTO = new PatchDTO(newOrder.getFilled() + transactionQuantity);
+    orderProxy.updateOne(newOrder.getGuid(), patchDTO);
   }
 
   /**
