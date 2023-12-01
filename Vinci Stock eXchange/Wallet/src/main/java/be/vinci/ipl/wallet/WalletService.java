@@ -40,13 +40,10 @@ public class WalletService {
         .filter(position -> position.getQuantity() > 0)
         .peek(position -> position.setUnitValue(priceProxy.getPriceByTicker(position.getTicker()).getPrice()))
         .map(positionWithUsername -> {
-          // Convertir PositionWithUsername en Position
           Position position = new Position();
           position.setTicker(positionWithUsername.getTicker());
           position.setQuantity(positionWithUsername.getQuantity());
           position.setUnitValue(positionWithUsername.getUnitValue());
-          // Autres attributs à copier
-
           return position;
         })
         .collect(Collectors.toList());
