@@ -6,4 +6,6 @@ INSERT INTO orders(guid, owner, order_timestamp, ticker, quantity, side, order_t
 
 INSERT INTO orders(guid, owner, order_timestamp, ticker, quantity, side, order_type, limit_price, filled) VALUES ('1475c3b8-4ff0-1324-12cc-52ba61a5b4a6', 'testUser', 323456789, 'LNRD', 10, 'BUY', 'LIMIT', 100.0, 10);
 
-INSERT INTO orders(guid, owner, order_timestamp, ticker, quantity, side, order_type, limit_price, filled) VALUES ('9785c3b8-4ff0-6347-12cc-52ba61a5b4a6', 'testUser', 323456789, 'LNRD', 10, 'SELL', 'LIMIT', 100.0, 2);
+INSERT INTO orders(guid, owner, order_timestamp, ticker, quantity, side, order_type, limit_price, filled) VALUES ('9785c3b8-4ff0-6347-12cc-52ba61a5b4a6', 'testUser3', 323456789, 'LNRD', 10, 'SELL', 'LIMIT', 100.0, 2);
+
+
