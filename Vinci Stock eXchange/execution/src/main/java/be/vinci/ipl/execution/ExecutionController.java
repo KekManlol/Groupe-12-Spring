@@ -68,10 +68,10 @@ public class ExecutionController {
     // Update price
     service.updatePrice(ticker, transactionPrice);
     // Update seller's order
-    sellerOrder.setFilled(sellerOrder.getFilled() - transactionQuantity);
+    sellerOrder.setFilled(sellerOrder.getFilled() + transactionQuantity);
     service.updateOrder(sellerOrder);
     // Update buyer's order
-    buyerOrder.setFilled(buyerOrder.getFilled() - transactionQuantity);
+    buyerOrder.setFilled(buyerOrder.getFilled() + transactionQuantity);
     service.updateOrder(buyerOrder);
 
     return new ResponseEntity<>(HttpStatus.OK);
