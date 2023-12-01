@@ -166,7 +166,7 @@ public class GatewayController {
     }
   }
 
-  @PostMapping("wallet/{username}/cash")
+  @PostMapping("/wallet/{username}/cash")
   public ResponseEntity<Iterable<Position>> addOrRemoveCashFromWallet(
       @PathVariable String username,
       @RequestBody CashDTO cashDTO,

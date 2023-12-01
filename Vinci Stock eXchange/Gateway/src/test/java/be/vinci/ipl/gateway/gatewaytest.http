@@ -1,5 +1,5 @@
 ### Create invalid investor
-POST http://localhost:8080/investor/test10
+POST http://localhost:8080/investor/testUser
 Content-Type: application/json
 
 {
@@ -14,12 +14,12 @@ Content-Type: application/json
 }
 
 ### Create investor
-POST http://localhost:8080/investor/test10
+POST http://localhost:8080/investor/testUser
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "test10",
+    "username": "testUser",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -29,12 +29,12 @@ Content-Type: application/json
 }
 
 ### Create existing investor
-POST http://localhost:8080/investor/test10
+POST http://localhost:8080/investor/testUser
 Content-Type: application/json
 
 {
   "investorData": {
-    "username": "test10",
+    "username": "testUser",
     "email": "bob@gmail.com",
     "firstname": "Bob",
     "lastname": "Eponge",
@@ -48,7 +48,7 @@ POST http://localhost:8080/authentication/connect
 Content-Type: application/json
 
 {
-  "username": "test10",
+  "username": "testUser",
   "password": "Patrick"
 }
 
@@ -57,11 +57,11 @@ Content-Type: application/json
 %}
 
 ### Read their own information
-GET http://localhost:8080/investor/test10
+GET http://localhost:8080/investor/testUser
 Authorization: {{token}}
 
 ### Read information while not being connected
-GET http://localhost:8080/investor/test10
+GET http://localhost:8080/investor/testUser
 Authorization: ''
 
 ### Read another investor's information
@@ -69,11 +69,11 @@ GET http://localhost:8080/investor/test
 Authorization: {{token}}
 
 ### Update their own information
-PUT http://localhost:8080/investor/test10
+PUT http://localhost:8080/investor/testUser
 Content-Type: application/json
 
 {
-  "username": "test10",
+  "username": "testUser",
   "email": "bob.eponge@gmail.com",
   "firstname": "Boby",
   "lastname": "Eponge",
@@ -113,8 +113,8 @@ DELETE http://localhost:8080/investor/test11
 ### Delete non existing investor
 DELETE http://localhost:8080/investor/test220
 
-### Add cash to test10 wallet
-POST http://localhost:8080/wallet/test10/cash
+### Add cash to testUser wallet
+POST http://localhost:8080/wallet/testUser/cash
 Authorization: {{token}}
 Content-Type: application/json
 
@@ -122,15 +122,15 @@ Content-Type: application/json
   "cash": 100.0
 }
 
-### Read Net worth value of test10 wallet
-GET http://localhost:8080/wallet/test10/net-worth
+### Read Net worth value of testUser wallet
+GET http://localhost:8080/wallet/testUser/net-worth
 Authorization: {{token}}
 
 ### Delete an investor but the investor's situation does not allow (test with wallet)
-DELETE http://localhost:9001/investor/bob
+DELETE http://localhost:9001/investor/testUser
 
 ### Update Credentials
-PUT http://localhost:8080/authentication/test10
+PUT http://localhost:8080/authentication/testUser
 Authorization: {{token}}
 Content-Type: application/json
 
@@ -139,7 +139,7 @@ Content-Type: application/json
   "password": "Patrick2"
 }
 
-### Create investor to test update
+### Create investor to test update bad requests
 POST http://localhost:8080/investor/test9
 Content-Type: application/json
 
@@ -154,26 +154,69 @@ Content-Type: application/json
   "password": "Patrick"
 }
 
-### Update invest test11 credentials while being connected as test10
-PUT http://localhost:8080/authentication/test12
+### Update invest test9 credentials while being connected as testUser
+PUT http://localhost:8080/authentication/test9
 Authorization: {{token}}
 Content-Type: application/json
 
 {
-  "username": "test12",
+  "username": "test9",
   "password": "Patrick2"
 }
 
-### Update invest test10 credentials with no valid token
-PUT http://localhost:8080/authentication/test12
-Authorization: sdfsdf
+### Update invest testUser credentials with no valid token
+PUT http://localhost:8080/authentication/test9
+Authorization: ""
 Content-Type: application/json
 
 {
-  "username": "test12",
+  "username": "test9",
   "password": "Patrick2"
 }
 
+### Create order
+POST http://localhost:8080/investor/testUser
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 123446599789,
+  "ticker": "AAPL",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0,
+  "filled": 0
+}
+
+### Read all orders of an existing user
+GET http://localhost:8080/order/by-user/testUser
+Authorization: {{token}}
+
+### Read all orders of another investor while being connected as testUser
+GET http://localhost:8080/order/by-user/test9
+Authorization: {{token}}
+
+### Read all open positions of an investor
+GET http://localhost:8080/wallet/testUser
+Authorization: {{token}}
+
+### Read all open positions of another investor while being connected as testUser
+GET http://localhost:8080/wallet/test9
+Authorization: {{token}}
+
+### Read all open positions of another investor while being connected as testUser
+GET http://localhost:8080/wallet/test9
+Authorization: {{token}}
+
+### Add 10 quantity of the ticker 'AZERTY' in testUser
+POST http://localhost:8080/wallet/testUser/position/AZERTY
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "quantity": 10.0
+}
 
 
 
