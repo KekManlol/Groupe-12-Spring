@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface ExecutionProxy {
 
   @PostMapping("/execute/{ticker}/{seller}/{buyer}")
-  boolean executeOrder(@PathVariable String ticker, @PathVariable String seller
+  void executeOrder(@PathVariable String ticker, @PathVariable String seller
       , @PathVariable String buyer, @RequestBody Transaction transaction);
 }

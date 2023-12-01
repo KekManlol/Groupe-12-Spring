@@ -18,5 +18,5 @@ public interface OrderProxy {
   Iterable<Order> findOrdersByTicker(@PathVariable String ticker, @PathVariable OrderSide side);
 
   @PatchMapping("/order/{guid}")
-  boolean updateSharesQuantity(@PathVariable String guid, @RequestBody PatchDTO patchDTO);
+  void updateSharesQuantity(@PathVariable String guid, @RequestBody PatchDTO patchDTO);
 }
