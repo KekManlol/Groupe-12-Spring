@@ -113,6 +113,22 @@ DELETE http://localhost:8080/investor/test11
 ### Delete non existing investor
 DELETE http://localhost:8080/investor/test220
 
+### Add cash to test10 wallet
+POST http://localhost:8080/wallet/test10/cash
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "cash": 100.0
+}
+
+### Read Net worth value of test10 wallet
+GET http://localhost:8080/wallet/test10/net-worth
+Authorization: {{token}}
+
+### Delete an investor but the investor's situation does not allow (test with wallet)
+DELETE http://localhost:9001/investor/bob
+
 ### Update Credentials
 PUT http://localhost:8080/authentication/test10
 Authorization: {{token}}

@@ -224,7 +224,9 @@ public class GatewayService {
    */
   public Iterable<Position> addOrRemoveCashFromWallet(String username, CashDTO cashDTO) throws NotFoundException {
     try {
-      Position cashPosition = new Position("CASH", 1, (int) cashDTO.getCash());
+      Position cashPosition = new Position();
+      cashPosition.setTicker("CASH");
+      cashPosition.setQuantity((int) cashDTO.getCash());
       List<Position> positions = new ArrayList<>();
       positions.add(cashPosition);
       walletProxy.addPositions(username, positions);
