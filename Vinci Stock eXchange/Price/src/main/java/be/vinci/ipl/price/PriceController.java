@@ -25,7 +25,7 @@ public class PriceController {
   public ResponseEntity<Price> readOne(@PathVariable String ticker) {
     Price price = service.readOne(ticker);
 
-    if (price == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    if (price == null) return new ResponseEntity<>(new Price(ticker, 1), HttpStatus.OK);
     else return new ResponseEntity<>(price, HttpStatus.OK);
   }
 
@@ -40,9 +40,7 @@ public class PriceController {
     Price updatedPrice = new Price(ticker, price);
     if (updatedPrice.invalid()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-
     boolean found = service.updateOne(updatedPrice);
-
     if (!found) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     else return new ResponseEntity<>(HttpStatus.OK);
   }

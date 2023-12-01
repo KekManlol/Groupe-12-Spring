@@ -127,7 +127,7 @@ GET http://localhost:8080/wallet/test10/net-worth
 Authorization: {{token}}
 
 ### Delete an investor but the investor's situation does not allow (test with wallet)
-DELETE http://localhost:9001/investor/bob
+DELETE http://localhost:9001/investor/test10
 
 ### Update Credentials
 PUT http://localhost:8080/authentication/test10

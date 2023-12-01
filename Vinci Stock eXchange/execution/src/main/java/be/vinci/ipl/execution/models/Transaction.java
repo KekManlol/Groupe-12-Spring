@@ -36,10 +36,12 @@ public class Transaction {
   private String buyer;
 
   @Column(nullable = false)
-  private String sell_order_guid;
+  @JsonProperty("sell_order_guid")
+  private String sellOrderGUID;
 
   @Column(nullable = false)
-  private String buy_order_guid;
+  @JsonProperty("buy_order_guid")
+  private String buyOrderGUID;
 
   @Column(nullable = false)
   private int quantity;
@@ -55,9 +57,9 @@ public class Transaction {
     return ticker == null || ticker.isBlank() ||
         buyer == null || buyer.isBlank() ||
         seller == null || seller.isBlank() ||
-        sell_order_guid == null || sell_order_guid.isBlank() ||
-        buy_order_guid == null || buy_order_guid.isBlank() ||
+        sellOrderGUID == null || sellOrderGUID.isBlank() ||
+        buyOrderGUID == null || buyOrderGUID.isBlank() ||
         quantity <= 0 ||
-        price <= 0;
+        price < 0;
   }
 }

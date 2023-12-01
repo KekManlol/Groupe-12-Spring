@@ -1,6 +1,7 @@
 package be.vinci.ipl.order.models;
 
 import jakarta.persistence.*;
+import jakarta.ws.rs.DefaultValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,5 +40,5 @@ public class Order {
 
     @Column(name = "limit_price", updatable = false)
     private double limit;
-    private int filled;
+    private int filled = 0;
 }
