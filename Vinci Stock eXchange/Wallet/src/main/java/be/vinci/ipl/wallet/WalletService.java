@@ -51,6 +51,7 @@ public class WalletService {
           .orElse(null);
       if (existingPosition != null) {
         existingPosition.setQuantity(existingPosition.getQuantity() + position.getQuantity());
+
         repository.save(existingPosition);
       }
       else {
@@ -61,6 +62,7 @@ public class WalletService {
         repository.save(newPosition);
       }
     }
+    existingPositions = repository.findByUsername(username); // update positions to return
     return existingPositions;
   }
 }
