@@ -24,8 +24,7 @@ public class PriceService {
       Price newPrice = new Price();
       newPrice.setTicker(ticker);
       newPrice.setPrice(1);
-      repository.save(newPrice);
-      price = newPrice;
+      price = repository.save(newPrice);
     }
     return price;
   }

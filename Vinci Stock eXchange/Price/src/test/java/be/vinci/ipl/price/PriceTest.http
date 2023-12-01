@@ -1,5 +1,5 @@
 ### Read price
-GET http://localhost:9004/price/ABCD
+GET http://localhost:9004/price/AZERTY
 
 ### Read price of non existing ticker
 GET http://localhost:9004/price/XJKA
