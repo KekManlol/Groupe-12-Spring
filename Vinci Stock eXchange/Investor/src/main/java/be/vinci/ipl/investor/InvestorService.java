@@ -50,14 +50,6 @@ public class InvestorService {
     unsafeCrendential.setPassword(investorWithPassword.getPassword());
     unsafeCrendential.setUsername(investorWithPassword.getInvestorData().getUsername());
     authenticationProxy.createOne(username, unsafeCrendential);
-
-    List<Position> newPosition = new ArrayList<>();
-    Position position = new Position();
-    position.setTicker("CASH");
-    position.setQuantity(0);
-    newPosition.add(position);
-
-    walletProxy.addPositions(username, newPosition);
     repository.save(investorWithPassword.getInvestorData());
 
     return true;

@@ -17,6 +17,6 @@ import lombok.ToString;
 public class Position {
   private String ticker;
   private int quantity;
-  private double unitValue;
+  private float unitValue;
 
 }

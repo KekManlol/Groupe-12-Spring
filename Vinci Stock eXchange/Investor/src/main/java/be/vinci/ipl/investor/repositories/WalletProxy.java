@@ -16,7 +16,4 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface WalletProxy {
   @GetMapping("/wallet/{username}/net-worth")
   Float getNetWorth(@PathVariable String username);
-
-  @PostMapping("/wallet/{username}")
- Iterable<PositionWithUsername> addPositions(@PathVariable String username, @RequestBody List<Position> positions);
 }
