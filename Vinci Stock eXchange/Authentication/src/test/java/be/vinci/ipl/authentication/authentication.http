@@ -1,18 +1,18 @@
 ### CREATE ONE NON-EXISTING USER
-POST {{authentication_url}}/test
+POST {{authentication_url}}/newUser
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "newUser",
   "password": "blablabla"
 }
 
 ### CREATE ONE EXISTING USER
-POST {{authentication_url}}/test1
+POST {{authentication_url}}/bob
 Content-Type: application/json
 
 {
-  "username": "test1",
+  "username": "bob",
   "password": "password"
 }
 
@@ -21,7 +21,7 @@ POST {{authentication_url}}/connect
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "newUser",
   "password": "blablabla"
 }
 
@@ -42,17 +42,17 @@ Content-Type: text/plain
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdCJ9.ZnvsrW07eomBqBgqqThoYO6jizwJhV-t0f-aHcKQpHQWTOhdpC7F9J2C0woRFl7Ue1b2U7r80NojqCss5SOygg
 
 ### DELETE ONE EXISTING USER
-DELETE {{authentication_url}}/test
+DELETE {{authentication_url}}/newUser
 
 ### DELETE ONE NON-EXISTING USER
 DELETE {{authentication_url}}/nonExisting
 
 ### UPDATE ONE EXISTING USER
-PUT {{authentication_url}}/test
+PUT {{authentication_url}}/newUser
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "newUser",
   "password": "password"
 }
 
@@ -70,6 +70,6 @@ PUT {{authentication_url}}/test5
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "newUser",
   "password": "password"
 }
