@@ -1,6 +1,6 @@
 
 ### Read price
-GET http://localhost:9004/price/ABCD
+GET http://localhost:9004/price/CASH
 
 ### Patch price
 PATCH http://localhost:9004/price/ABCD

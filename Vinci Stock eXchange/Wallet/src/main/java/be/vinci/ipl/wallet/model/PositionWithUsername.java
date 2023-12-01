@@ -23,7 +23,7 @@ public class PositionWithUsername {
   @Column(nullable = false)
   private String username;
   @Column(name = "unit_value", nullable = false)
-  private float unitValue = 1.0f;
+  private float unitValue;
   @Column(nullable = false)
   private int quantity;
 

@@ -25,8 +25,7 @@ public class PriceController {
   public ResponseEntity<Price> readOne(@PathVariable String ticker) {
     Price price = service.readOne(ticker);
 
-    if (price == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    else return new ResponseEntity<>(price, HttpStatus.OK);
+    return new ResponseEntity<>(price, HttpStatus.OK);
   }
 
   /**

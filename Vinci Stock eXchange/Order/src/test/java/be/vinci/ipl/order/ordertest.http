@@ -13,6 +13,20 @@ Content-Type: application/json
   "filled": 0
 }
 
+### Create order with filled omitted (default value = 0)
+POST http://localhost:9002/order
+Content-Type: application/json
+
+{
+  "owner": "testUser",
+  "timestamp": 123456789,
+  "ticker": "AAPL",
+  "quantity": 10,
+  "side": "BUY",
+  "type": "LIMIT",
+  "limit": 100.0
+}
+
 ### Create order with guid
 POST http://localhost:9002/order
 Content-Type: application/json
