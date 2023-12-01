@@ -1,3 +1,53 @@
+POST http://localhost:9005/wallet/test
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-12-01T145859.200.json
+
+###
+
+POST http://localhost:9005/wallet/test
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+[
+  {
+    "ticker": "ABCD",
+    "quantity": 10,
+    "unitvalue": 0
+  },
+
+  {
+    "ticker": "CASH",
+    "quantity": 100,
+    "unitvalue": 1
+  }
+]
+
+<> 2023-12-01T145831.200.json
+
+###
+
 GET http://localhost:9004/price/AZERTY
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
@@ -806,32 +856,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-12-01T132521.400.json
-
-###
-
-GET http://localhost:8080/wallet/test10/net-worth
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdDEwIn0.mPXBOZoUHnBaaMJL5pKCfV0bcGIMynA4dlMLrsmO47F_vAtZGPagVtpXwvPvhC-zrz6QtxG695QW4fsVvKzdeg
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-01T132350.200.json
-
-###
-
-POST http://localhost:8080/wallet/test10/cash
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJuYW1lIjoidGVzdDEwIn0.mPXBOZoUHnBaaMJL5pKCfV0bcGIMynA4dlMLrsmO47F_vAtZGPagVtpXwvPvhC-zrz6QtxG695QW4fsVvKzdeg
-Content-Type: application/json
-Content-Length: 19
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "cash": 100.0
-}
-
-<> 2023-12-01T132347.200.json
 
 ###
 

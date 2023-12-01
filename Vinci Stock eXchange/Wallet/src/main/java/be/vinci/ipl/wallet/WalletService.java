@@ -63,7 +63,6 @@ public class WalletService {
         repository.save(newPosition);
       }
     }
-    existingPositions = repository.findByUsername(username); // update positions to return
-    return existingPositions;
+    return getOpenPositions(username);
   }
 }
