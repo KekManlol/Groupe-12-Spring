@@ -23,6 +23,11 @@ public class WalletService {
     this.priceProxy = priceProxy;
     this.investorProxy = investorProxy;
   }
+  /**
+   * get the total value of the investor's wallet
+   * @param username the username of the investor
+   * @return the investor's wallet net worth, or -1 if the investor couldn't be found
+   */
   public float getNetWorth(String username) {
     Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return -1;
@@ -32,15 +37,35 @@ public class WalletService {
     }
     return netWorth;
   }
-  public Iterable<PositionWithUsername> getOpenPositions(String username) {
+
+  /**
+   * get open positions of an investor
+   * @param username the username of the investor
+   * @return open positions, or null if the investor couldn't be found
+   */
+  public Iterable<Position> getOpenPositions(String username) {
     Iterable<PositionWithUsername> positions = repository.findByUsername(username);
     if (investorProxy.readOne(username) == null) return null;
+
     return StreamSupport.stream(positions.spliterator(), false)
         .filter(position -> position.getQuantity() > 0)
         .peek(position -> position.setUnitValue(priceProxy.getPriceByTicker(position.getTicker()).getPrice()))
+        .map(positionWithUsername -> {
+          Position position = new Position();
+          position.setTicker(positionWithUsername.getTicker());
+          position.setQuantity(positionWithUsername.getQuantity());
+          position.setUnitValue(positionWithUsername.getUnitValue());
+          return position;
+        })
         .collect(Collectors.toList());
   }
-  public Iterable<PositionWithUsername> addPositions(String username, List<Position> newPositions) {
+  /**
+   * add position(s) to investor's wallet
+   * @param username the username of the investor
+   * @param newPositions positions to add
+   * @return update open positions, or null if the investor couldn't be found
+   */
+  public Iterable<Position> addPositions(String username, List<Position> newPositions) {
     Iterable<PositionWithUsername> existingPositions = repository.findByUsername(username);
 
     if (investorProxy.readOne(username) == null) return null;

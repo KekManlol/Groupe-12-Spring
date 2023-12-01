@@ -48,8 +48,6 @@ public class MatchingService {
       int remainingBuyOrderTitle = chosenBuyOrder.getQuantity() - chosenBuyOrder.getFilled();
       int titleQuantity = Math.min(remainingBuyOrderTitle, remainingSellOrderTitle);
 
-
-
       Transaction transaction = new Transaction(ticker,chosenSellOrder.getOwner(), chosenBuyOrder.getOwner(),
               chosenSellOrder.getGuid(), chosenBuyOrder.getGuid(), titleQuantity,0);
 
